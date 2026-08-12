@@ -65,9 +65,11 @@
 
         /* Custom Hero Background specifically for the Intro */
         .hero-section {
-            background-image: linear-gradient(to right, rgba(13, 17, 23, 1) 30%, rgba(13, 17, 23, 0.4)), url('background.jpeg');
+            /* Adjusted gradient to clear up the right side of the image */
+            background-image: linear-gradient(to right, rgba(13, 17, 23, 1) 40%, rgba(13, 17, 23, 0.1) 70%), url('background.jpeg');
             background-size: cover;
-            background-position: center 20%;
+            /* Shifted image to the right to prioritize your face */
+            background-position: right 30%; 
             padding: 4rem 3rem;
             border-radius: 12px;
             border: 1px solid var(--border);
@@ -86,7 +88,8 @@
         .intro-text {
             font-size: 1.2rem;
             color: var(--text-main);
-            max-width: 550px; /* Keeps text on the dark side of the gradient */
+            /* Reduced width slightly to keep text from overlapping the image subject */
+            max-width: 480px; 
             margin-bottom: 1rem;
             margin-top: 1.5rem;
         }
@@ -108,7 +111,7 @@
     <nav>
         <a href="index.html" class="active">Intro</a>
         <a href="research.html">Research & Experience</a>
-        <a href="skills.html">Technical Stack</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
     <!-- 01 INTRO WITH PHOTO BACKGROUND -->
@@ -119,7 +122,7 @@
             Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur, an experimental propulsion researcher, and a continuous learner. 
         </p>
         <p class="intro-text">
-            I spend my time figuring out why combustors become unstable, learning how to design better UAVs, and analyzing the physics behind high-speed flows.
+            I spend my time investigating combustion instability, learning how to design better UAVs, and analyzing the physics behind high-speed flows.
         </p>
     </header>
 
