@@ -5,32 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Aanantha Krishnan N.</title>
     <style>
+        /* Dark Engineering Theme */
         :root {
-            --bg-color: #f4f4f5;
-            --text-main: #18181b;
-            --text-muted: #52525b;
-            --accent: #2563eb;
-            --border: #e4e4e7;
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-bright: #ffffff;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --bg-panel: #161b22;
         }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
             color: var(--text-main);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             font-size: 16px;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1100px; /* Slightly wider for the split layout */
             margin: 0 auto;
             padding: 4rem 2rem;
         }
+
         nav {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             border-bottom: 1px solid var(--border);
             padding-bottom: 1rem;
         }
+
         nav a {
             margin-right: 2rem;
             font-size: 0.9rem;
@@ -38,42 +49,124 @@
             letter-spacing: 0.1em;
             color: var(--text-muted);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
+
         nav a:hover {
-            color: var(--text-main);
+            color: var(--text-bright);
         }
+
         nav a.active {
-            color: var(--text-main);
+            color: var(--text-bright);
             font-weight: 600;
-            border-bottom: 2px solid var(--text-main);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 1.15rem;
         }
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
+
         .meta {
             font-size: 0.85rem;
             font-family: monospace;
-            color: var(--text-muted);
+            text-transform: uppercase;
+            color: var(--accent);
             margin-bottom: 1rem;
             display: block;
+            letter-spacing: 0.1em;
         }
-        .grid {
+
+        /* Interactive Split Layout */
+        .research-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: start;
         }
+
         @media (min-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
+            .research-container {
+                grid-template-columns: 1fr 2fr; /* Left menu is 1 part, Right detail is 2 parts */
+                gap: 4rem;
             }
+        }
+
+        /* Left Column: Menu */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-link {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            color: var(--text-muted);
+        }
+
+        .project-link h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: inherit;
+        }
+
+        .project-link .sub-meta {
+            font-family: monospace;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .project-link:hover {
+            border-color: var(--text-muted);
+            color: var(--text-bright);
+        }
+
+        /* Active State for the Menu Button */
+        .project-link.active-project {
+            border-color: var(--accent);
+            color: var(--text-bright);
+            background-color: rgba(88, 166, 255, 0.05);
+            box-shadow: inset 4px 0 0 var(--accent);
+        }
+
+        /* Right Column: Details */
+        .project-detail {
+            display: none; /* Hidden by default */
+            background-color: var(--bg-panel);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-detail h2 {
+            font-size: 2rem;
+            color: var(--text-bright);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .project-detail p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin-top: 1.5rem;
+            background-color: #000; /* Placeholder background */
         }
     </style>
 </head>
@@ -85,41 +178,102 @@
     <nav>
         <a href="index.html">Intro</a>
         <a href="research.html" class="active">Research & Experience</a>
-        <a href="skills.html">Technical Stack</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- 02 RESEARCH & EXPERIENCE -->
-    <section>
-        <span class="meta">02 · RESEARCH AND EXPERIENCE</span>
+    <span class="meta">02 · RESEARCH AND EXPERIENCE</span>
+
+    <div class="research-container">
         
-        <div class="grid" style="margin-top: 2rem;">
-            <div>
+        <!-- LEFT COLUMN: PROJECT MENU -->
+        <div class="project-list">
+            <button class="project-link active-project" onclick="showProject('project-1', this)">
                 <h3>Density-Stratified Flows</h3>
-                <span class="meta">APSYS Lab, IIT Kharagpur | Jan 2027 – Present</span>
-                <p>Working under Prof. Amardip Ghosh. Designed an experimental rig to study pressure-density coupling and baroclinic vorticity across an air-helium interface. Developed an end-to-end CFD framework in ANSYS Fluent to capture the onset of Richtmyer-Meshkov Instability (RMI).</p>
-            </div>
+                <p class="sub-meta">APSYS Lab | Jan 2027 – Present</p>
+            </button>
             
-            <div>
+            <button class="project-link" onclick="showProject('project-2', this)">
                 <h3>Thermoacoustic Instabilities</h3>
+                <p class="sub-meta">APSYS Lab | May 2024 – Dec 2024</p>
+            </button>
+
+            <button class="project-link" onclick="showProject('project-3', this)">
+                <h3>Sea Wave Detection</h3>
+                <p class="sub-meta">RAFT Lab | May 2025 – Jun 2025</p>
+            </button>
+
+            <button class="project-link" onclick="showProject('project-4', this)">
+                <h3>Pushpak UAV (AIAA DBF)</h3>
+                <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
+            </button>
+        </div>
+
+        <!-- RIGHT COLUMN: PROJECT DETAILS -->
+        <div class="project-content">
+            
+            <!-- Project 1 Detail -->
+            <div id="project-1" class="project-detail" style="display: block;">
+                <h2>Density-Stratified Flows</h2>
+                <span class="meta">APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh</span>
+                <p>Designed an experimental rig to study pressure-density coupling and baroclinic vorticity across an air-helium interface. Developed an end-to-end CFD framework in ANSYS Fluent to capture the onset of Richtmyer-Meshkov Instability (RMI).</p>
+                <!-- ADD YOUR IMAGE HERE. Replace 'placeholder.jpg' with your actual file name -->
+                <img src="placeholder.jpg" alt="Experimental Rig Diagram" class="project-image" onerror="this.style.display='none'">
+            </div>
+
+            <!-- Project 2 Detail -->
+            <div id="project-2" class="project-detail">
+                <h2>Thermoacoustic Instabilities</h2>
                 <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
                 <p>Characterized vertical dump combustor instabilities by identifying dominant acoustic modes. Performed FFT and spectrogram analysis on Kistler pressure-sensor data acquired through a high-speed DAQ system, maintaining a custom water-cooling loop for sensor fidelity.</p>
+                <!-- ADD YOUR IMAGE HERE -->
+                <img src="placeholder.jpg" alt="FFT Analysis Graph" class="project-image" onerror="this.style.display='none'">
             </div>
 
-            <div>
-                <h3>Sea Wave Detection via Deep Learning</h3>
-                <span class="meta">RAFT Lab, IIT Madras | May 2025 – Jun 2025</span>
-                <p>Summer Research Intern under Prof. Ranjith Mohan. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
+            <!-- Project 3 Detail -->
+            <div id="project-3" class="project-detail">
+                <h2>Sea Wave Detection via Deep Learning</h2>
+                <span class="meta">RAFT Lab, IIT Madras | Prof. Ranjith Mohan</span>
+                <p>Summer Research Intern. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
+                <!-- ADD YOUR IMAGE HERE -->
+                <img src="placeholder.jpg" alt="Computer Vision Bounding Boxes" class="project-image" onerror="this.style.display='none'">
             </div>
 
-            <div>
-                <h3>Pushpak UAV (AIAA DBF)</h3>
+            <!-- Project 4 Detail -->
+            <div id="project-4" class="project-detail">
+                <h2>Pushpak UAV (AIAA DBF)</h2>
                 <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
                 <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
+                <!-- ADD YOUR IMAGE HERE -->
+                <img src="placeholder.jpg" alt="Pushpak UAV CAD Render" class="project-image" onerror="this.style.display='none'">
             </div>
+
         </div>
-    </section>
+    </div>
 
 </div>
+
+<!-- Interactive Logic for the Menu -->
+<script>
+    function showProject(projectId, buttonElement) {
+        // 1. Hide all project details
+        const allDetails = document.querySelectorAll('.project-detail');
+        allDetails.forEach(detail => {
+            detail.style.display = 'none';
+        });
+
+        // 2. Remove the active highlight from all buttons
+        const allButtons = document.querySelectorAll('.project-link');
+        allButtons.forEach(btn => {
+            btn.classList.remove('active-project');
+        });
+
+        // 3. Show the selected project detail
+        document.getElementById(projectId).style.display = 'block';
+
+        // 4. Add the active highlight to the clicked button
+        buttonElement.classList.add('active-project');
+    }
+</script>
 
 </body>
 </html>
