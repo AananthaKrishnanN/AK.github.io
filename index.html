@@ -6,30 +6,46 @@
     <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
-        /* Dark Engineering Theme */
+        /* Dark Engineering Theme with Combustor Glow */
         :root {
-            --bg-color: #0d1117;
+            --bg-color: #05080c; /* Deeper space black */
             --text-main: #c9d1d9;
             --text-muted: #8b949e;
             --text-bright: #ffffff;
-            --accent: #58a6ff;
+            --accent: #ff6b35; /* Changed accent to a hot flame orange */
             --border: #30363d;
         }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            /* Subtle CAD-style structural grid */
+            
+            /* Enhanced Combustor Effect */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                /* Made the orange and red much brighter and larger */
+                radial-gradient(circle at 85% 15%, rgba(255, 100, 30, 0.25), transparent 60%),
+                radial-gradient(circle at 15% 85%, rgba(200, 40, 10, 0.2), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(50, 100, 255, 0.08), transparent 70%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+            background-attachment: fixed;
+            
             color: var(--text-main);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             font-size: 16px;
+            
+            /* Stronger pulsing animation */
+            animation: combustorPulse 6s infinite alternate ease-in-out;
         }
+
+        @keyframes combustorPulse {
+            0% { background-color: #05080c; }
+            100% { background-color: #120a05; } /* Pulses to a slight dark reddish-brown */
+        }
+
 
         .container {
             max-width: 900px;
@@ -66,15 +82,14 @@
 
         /* Custom Hero Background specifically for the Intro */
         .hero-section {
-            /* Adjusted gradient to clear up the right side of the image */
-            background-image: linear-gradient(to right, rgba(13, 17, 23, 1) 40%, rgba(13, 17, 23, 0.1) 70%), url('background.jpeg');
+            background-image: linear-gradient(to right, rgba(5, 8, 12, 1) 40%, rgba(5, 8, 12, 0.1) 70%), url('background.jpeg');
             background-size: cover;
-            /* Shifted image to the right to prioritize your face */
-            background-position: left 30%; 
+            background-position: right 30%; 
             padding: 4rem 3rem;
             border-radius: 12px;
             border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* Updated shadow to reflect a slight flame color */
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
         }
 
         h1 {
@@ -89,7 +104,6 @@
         .intro-text {
             font-size: 1.2rem;
             color: var(--text-main);
-            /* Reduced width slightly to keep text from overlapping the image subject */
             max-width: 480px; 
             margin-bottom: 1rem;
             margin-top: 1.5rem;
@@ -119,12 +133,13 @@
     <header class="hero-section">
         <span class="meta">01 · INTRO</span>
         <h1>Aanantha Krishnan N.</h1>
-<p class="intro-text">
-            Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur, an experimental propulsion researcher, and above all, a learner.
+        <p class="intro-text">
+            Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur, an experimental propulsion researcher, and an active learner.
         </p>
         <p class="intro-text">
-            I spend my time figuring out why combustors become unstable—the rattling, howling kind of unstable—and mapping the pressure dynamics driving them. I specialize in thermoacoustic instability, density-stratified flows, and fluid physics.
+            I spend my time figuring out why combustors become unstable and mapping the reasons that drive them. I am becoming an expertise in thermoacoustic instability, density-stratified flows, and combustion physics.
         </p>
+    </header>
 
 </div>
 
