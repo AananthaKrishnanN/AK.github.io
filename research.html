@@ -133,6 +133,44 @@
             box-shadow: inset 4px 0 0 var(--accent);
         }
 
+        /* Skills Sidebar Layout */
+        .skills-section {
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h4 {
+            font-size: 0.75rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-weight: normal;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 50px;
+            color: var(--text-main);
+            font-family: monospace;
+        }
+
         /* Right Column: Details */
         .project-detail {
             display: none; 
@@ -186,7 +224,7 @@
 
     <div class="research-container">
         
-        <!-- LEFT COLUMN: PROJECT MENU -->
+        <!-- LEFT COLUMN: PROJECT MENU & SKILLS -->
         <div class="project-list">
             <button class="project-link active-project" onclick="showProject('project-1', this)">
                 <h3>Density-Stratified Flows</h3>
@@ -207,6 +245,48 @@
                 <h3>AIAA DBF 2026</h3>
                 <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
             </button>
+
+            <!-- SKILLS CATEGORIES (Added below projects) -->
+            <div class="skills-section">
+                <div class="skill-category">
+                    <h4>Combustion & Flows</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Thermoacoustics</span>
+                        <span class="skill-tag">Aerodynamics</span>
+                        <span class="skill-tag">Baroclinic Vorticity</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Diagnostics & DAQ</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Schlieren</span>
+                        <span class="skill-tag">Shadowgraphy</span>
+                        <span class="skill-tag">High-Speed DAQ</span>
+                        <span class="skill-tag">LabVIEW</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>CAD & CFD</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ANSYS Fluent</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Onshape</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Programming & AI</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">C/C++</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- RIGHT COLUMN: PROJECT DETAILS -->
