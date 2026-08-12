@@ -3,80 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aanantha Krishnan N. | Aerospace Portfolio</title>
+    <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <style>
-        body   {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+        :root {
+            --bg-color: #f4f4f5;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --accent: #2563eb;
+            --border: #e4e4e7;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #1a2a3a;
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #d1d9e0;
+            font-size: 16px;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 2rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
-        .section {
-            background: white;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
         }
         h2 {
-            border-bottom: 2px solid #1a2a3a;
-            padding-bottom: 10px;
-            margin-top: 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .intro-text {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        .meta {
+            font-size: 0.85rem;
+            font-family: monospace;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.75rem;
+            font-family: monospace;
+            border-radius: 4px;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
+<div class="container">
+    
+    <!-- 01 INTRO -->
     <header>
+        <span class="meta">01 · INTRO</span>
         <h1>Aanantha Krishnan N.</h1>
-        <p>Aerospace Engineering Undergraduate | Research in Propulsion & Fluid Dynamics</p>
+        <p class="intro-text">
+            I am a pre-final year Aerospace Engineering undergraduate at IIT Kharagpur. I conduct experimental research focusing on thermoacoustic instability, high-energy flow instabilities, and advanced propulsion systems. When I am not in the lab analyzing pressure dynamics, I am designing and flight-testing UAVs.
+        </p>
     </header>
 
-    <div class="container">
+    <!-- 02 EDUCATION & PUBLICATIONS -->
+    <section>
+        <h2>02 · Education & Publications</h2>
         
-        <div class="section" id="research">
-            <h2>Experimental Research</h2>
-            <p><strong>Focus:</strong> Thermoacoustic instability, combustion dynamics, and high-energy flow instabilities.</p>
-            <p><em>Details and project descriptions will go here...</em></p>
-        </div>
+        <h3>Indian Institute of Technology, Kharagpur</h3>
+        <span class="meta">B.Tech in Aerospace Engineering | CGPA: 8.99/10 | Aug 2023 – Present</span>
+        
+        <h3>AIAA SciTech Forum 2027</h3>
+        <span class="meta">Abstract Submitted (Under Review)</span>
+        <p>"Shear Coaxial Flow Interaction with Transverse Pressure Waves." Authors: Aanantha Krishnan N., R. K. Mishra, M. Kakkar, A. Patil, S. Iyer, and A. Ghosh.</p>
+    </section>
 
-        <div class="section" id="aeromodelling">
-            <h2>Engineering & Aeromodelling</h2>
-            <p><strong>Focus:</strong> UAV design, CAD modeling (Onshape/SolidWorks), and composite manufacturing.</p>
-            <p><em>Pushpak UAV project details will go here...</em></p>
-        </div>
+    <!-- 03 RESEARCH & EXPERIENCE -->
+    <section>
+        <h2>03 · Research & Experience</h2>
+        
+        <div class="grid">
+            <div>
+                <h3>Density-Stratified Flows</h3>
+                <span class="meta">APSYS Lab, IIT Kharagpur | Jan 2027 – Present</span>
+                <p>Working under Prof. Amardip Ghosh. Designed an experimental rig to study pressure-density coupling and baroclinic vorticity across an air-helium interface. Developed an end-to-end CFD framework in ANSYS Fluent to capture the onset of Richtmyer-Meshkov Instability (RMI).</p>
+            </div>
+            
+            <div>
+                <h3>Thermoacoustic Instabilities</h3>
+                <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
+                <p>Characterized vertical dump combustor instabilities by identifying dominant acoustic modes. Performed FFT and spectrogram analysis on Kistler pressure-sensor data acquired through a high-speed DAQ system, maintaining a custom water-cooling loop for sensor fidelity.</p>
+            </div>
 
-        <div class="section" id="computation">
-            <h2>Computation & Simulation</h2>
-            <p><strong>Focus:</strong> Python data visualization, symbolic regression, and MATLAB/Simulink workflows.</p>
-            <p><em>Code snippets and data models will go here...</em></p>
-        </div>
+            <div>
+                <h3>Sea Wave Detection via Deep Learning</h3>
+                <span class="meta">RAFT Lab, IIT Madras | May 2025 – Jun 2025</span>
+                <p>Summer Research Intern under Prof. Ranjith Mohan. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
+            </div>
 
-    </div>
+            <div>
+                <h3>Pushpak UAV (AIAA DBF)</h3>
+                <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
+                <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 SKILLS -->
+    <section>
+        <h2>04 · Technical Stack</h2>
+        <div class="tag-container">
+            <span class="tag">ANSYS Fluent</span>
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Onshape</span>
+            <span class="tag">Python</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">High-Speed DAQ</span>
+            <span class="tag">Schlieren Imaging</span>
+            <span class="tag">C/C++</span>
+        </div>
+    </section>
+
+</div>
 
 </body>
 </html>
