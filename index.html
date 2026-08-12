@@ -3,34 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aanantha Krishnan N | Aerospace Engineering</title>
+    <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <style>
+        /* Dark Engineering Theme */
         :root {
-            --bg-color: #f4f4f5;
-            --text-main: #18181b;
-            --text-muted: #52525b;
-            --accent: #2563eb;
-            --border: #e4e4e7;
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-bright: #ffffff;
+            --accent: #58a6ff;
+            --border: #30363d;
         }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
+            /* Subtle CAD-style structural grid */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
             color: var(--text-main);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             font-size: 16px;
         }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
+
         nav {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             border-bottom: 1px solid var(--border);
             padding-bottom: 1rem;
         }
+
         nav a {
             margin-right: 2rem;
             font-size: 0.9rem;
@@ -38,37 +49,52 @@
             letter-spacing: 0.1em;
             color: var(--text-muted);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
+
         nav a:hover {
-            color: var(--text-main);
+            color: var(--text-bright);
         }
+
         nav a.active {
-            color: var(--text-main);
+            color: var(--text-bright);
             font-weight: 600;
-            border-bottom: 2px solid var(--text-main);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 1.15rem;
         }
+
+        /* Custom Hero Background specifically for the Intro */
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(13, 17, 23, 1) 30%, rgba(13, 17, 23, 0.4)), url('background.jpeg');
+            background-size: cover;
+            background-position: center 20%;
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
         h1 {
             font-size: 3rem;
             font-weight: 800;
             letter-spacing: -0.05em;
             margin-bottom: 0.5rem;
             line-height: 1.1;
+            color: var(--text-bright);
         }
-        p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
+
         .intro-text {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-main);
-            max-width: 800px;
-            margin-bottom: 2rem;
+            max-width: 550px; /* Keeps text on the dark side of the gradient */
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
         }
+
         .meta {
             font-size: 0.85rem;
             font-family: monospace;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 1rem;
             display: block;
         }
@@ -85,11 +111,15 @@
         <a href="skills.html">Technical Stack</a>
     </nav>
 
-    <!-- 01 INTRO -->
-    <header>
+    <!-- 01 INTRO WITH PHOTO BACKGROUND -->
+    <header class="hero-section">
+        <span class="meta">01 · INTRO</span>
         <h1>Aanantha Krishnan N.</h1>
         <p class="intro-text">
-            Hi! I study combustors—specifically why they become unstable (the rattling, howling kind of unstable) and I am figuring out the physics behind them. I'm an experimental aerospace researcher working in thermoacoustic instability, density-stratified flows, and fluid dynamics, currently in my pre-final year of a B.Tech in Aerospace Engineering at IIT Kharagpur.
+            Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur, an experimental propulsion researcher, and a continuous learner. 
+        </p>
+        <p class="intro-text">
+            I spend my time figuring out why combustors become unstable, learning how to design better UAVs, and analyzing the physics behind high-speed flows.
         </p>
     </header>
 
