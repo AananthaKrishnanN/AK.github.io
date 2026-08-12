@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Aanantha Krishnan N.</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f5;
+            --text-main: #18181b;
+            --text-muted: #52525b;
+            --accent: #2563eb;
+            --border: #e4e4e7;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        nav {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        nav a {
+            margin-right: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: var(--text-main);
+        }
+        nav a.active {
+            color: var(--text-main);
+            font-weight: 600;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 1.15rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.85rem;
+            font-family: monospace;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <a href="index.html">Intro</a>
+        <a href="research.html" class="active">Research & Experience</a>
+        <a href="skills.html">Technical Stack</a>
+    </nav>
+
+    <!-- 02 RESEARCH & EXPERIENCE -->
+    <section>
+        <span class="meta">02 · RESEARCH AND EXPERIENCE</span>
+        
+        <div class="grid" style="margin-top: 2rem;">
+            <div>
+                <h3>Density-Stratified Flows</h3>
+                <span class="meta">APSYS Lab, IIT Kharagpur | Jan 2027 – Present</span>
+                <p>Working under Prof. Amardip Ghosh. Designed an experimental rig to study pressure-density coupling and baroclinic vorticity across an air-helium interface. Developed an end-to-end CFD framework in ANSYS Fluent to capture the onset of Richtmyer-Meshkov Instability (RMI).</p>
+            </div>
+            
+            <div>
+                <h3>Thermoacoustic Instabilities</h3>
+                <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
+                <p>Characterized vertical dump combustor instabilities by identifying dominant acoustic modes. Performed FFT and spectrogram analysis on Kistler pressure-sensor data acquired through a high-speed DAQ system, maintaining a custom water-cooling loop for sensor fidelity.</p>
+            </div>
+
+            <div>
+                <h3>Sea Wave Detection via Deep Learning</h3>
+                <span class="meta">RAFT Lab, IIT Madras | May 2025 – Jun 2025</span>
+                <p>Summer Research Intern under Prof. Ranjith Mohan. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
+            </div>
+
+            <div>
+                <h3>Pushpak UAV (AIAA DBF)</h3>
+                <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
+                <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
