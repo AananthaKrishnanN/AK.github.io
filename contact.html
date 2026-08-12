@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Aanantha Krishnan N.</title>
+    <style>
+        /* Dark Engineering Theme */
+        :root {
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-bright: #ffffff;
+            --accent: #58a6ff;
+            --border: #30363d;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        nav {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        nav a {
+            margin-right: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-bright);
+        }
+
+        nav a.active {
+            color: var(--text-bright);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1.15rem;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+            letter-spacing: 0.1em;
+        }
+
+        /* Split Contact Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .serif-heading {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--text-bright);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .contact-left p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .primary-link {
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: opacity 0.2s ease;
+        }
+
+        .primary-link:hover {
+            opacity: 0.8;
+        }
+
+        .elsewhere-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .elsewhere-links a {
+            font-family: monospace;
+            font-size: 1rem;
+            color: var(--text-bright);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s ease;
+        }
+
+        .elsewhere-links a:hover {
+            color: var(--accent);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 0.4rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: 50px; /* Pill shape like the image */
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <a href="index.html">Intro</a>
+        <a href="research.html">Research & Experience</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <!-- 04 CONTACT SECTION -->
+    <div class="contact-grid">
+        
+        <!-- Left Side -->
+        <div class="contact-left">
+            <h1 class="serif-heading">Let's Talk</h1>
+            <p>Always open to interesting conversations and opportunities.</p>
+            <a href="mailto:krishnavarathinam@gmail.com" class="primary-link">krishnavarathinam@gmail.com</a>
+        </div>
+
+        <!-- Right Side -->
+        <div class="contact-right">
+            <h1 class="serif-heading">Elsewhere</h1>
+            <div class="elsewhere-links">
+                <a href="https://drive.google.com/file/d/1ELw5-GfhtZPQdoPpLB-WOIL-xqNwwHk9/view?usp=drive_link" target="_blank">CV</a>
+                <a href="https://www.linkedin.com/in/aananthakrishnan/" target="_blank">LinkedIn</a>
+            </div>
+
+            <span class="meta">Beyond Engineering</span>
+            <div class="tag-container">
+                <span class="tag">Strength Training</span>
+                <span class="tag">Exploring Nature</span>
+                <span class="tag">Long-Distance Travel</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
