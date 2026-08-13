@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         :root {
-            --text-main: #fcebdc; 
+            --text-main: #ffffff; /* Changed to pure white */
             --text-muted: #ffbba1;
             --text-bright: #ffffff;
             --accent: #ff6a00; 
@@ -132,7 +132,6 @@
         .hero-section {
             background-image: linear-gradient(to right, rgba(10, 2, 0, 0.95) 40%, rgba(10, 2, 0, 0.2) 70%), url('background.jpeg');
             background-size: cover;
-            /* Corrected position syntax: First value controls horizontal offset, second controls vertical alignment */
             background-position: 60% center; 
             padding: 4rem 3rem;
             border-radius: 12px;
@@ -154,6 +153,7 @@
             max-width: 480px; 
             margin-bottom: 1rem;
             margin-top: 1.5rem;
+            color: var(--text-main);
         }
     </style>
 </head>
@@ -194,7 +194,6 @@
 <script>
     const bh = document.getElementById('blackHole');
     document.addEventListener('mousemove', (e) => {
-        // Uses hardware acceleration (translate3d) for zero delay
         bh.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
     });
 </script>
