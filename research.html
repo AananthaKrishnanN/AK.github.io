@@ -4,47 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Aanantha Krishnan N.</title>
-     <link rel="icon" type="image/png" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
     <style>
-        /* Dark Engineering Theme */
+        /* Interactive Magma Flame Theme */
         :root {
-            --bg-color: #0d1117;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
+            --bg-color: #0f0500; 
+            --text-main: #fcebdc; 
+            --text-muted: #c2886a;
             --text-bright: #ffffff;
-            --accent: #58a6ff;
-            --border: #30363d;
-            --bg-panel: #161b22;
+            --accent: #ff4500; 
+            --border: #3b1705;
+            --bg-panel: #170902;
+            
+            --mouse-x: 50vw;
+            --mouse-y: 50vh;
         }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
             color: var(--text-main);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1100px; 
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* The Interactive Black Hole Magma Background */
+        .magma-bg {
+            position: fixed;
+            top: -5%; left: -5%; width: 110%; height: 110%; 
+            z-index: -1;
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, rgba(0,0,0,0.8) 40px, transparent 120px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 69, 0, 0.35) 80px, rgba(255, 140, 0, 0.1) 250px, transparent 450px);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+            background-position: 
+                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
+                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
+                0 0, 0 0;
         }
 
-        nav {
-            margin-bottom: 3rem;
+        /* UNIFIED NAVIGATION */
+        .main-nav {
             border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            position: relative;
+            z-index: 10;
         }
 
-        nav a {
-            margin-right: 2rem;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-container a {
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -53,15 +75,23 @@
             transition: color 0.2s ease;
         }
 
-        nav a:hover {
+        .nav-container a:hover {
             color: var(--text-bright);
         }
 
-        nav a.active {
+        .nav-container a.active {
             color: var(--text-bright);
             font-weight: 600;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 1.15rem;
+        }
+
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+            position: relative;
+            z-index: 10;
         }
 
         .meta {
@@ -74,7 +104,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* Interactive Split Layout */
         .research-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -90,7 +119,6 @@
             }
         }
 
-        /* Left Column: Menu */
         .project-list {
             display: flex;
             flex-direction: column;
@@ -125,15 +153,13 @@
             color: var(--text-bright);
         }
 
-        /* Active State for the Menu Button */
         .project-link.active-project {
             border-color: var(--accent);
             color: var(--text-bright);
-            background-color: rgba(88, 166, 255, 0.05);
+            background-color: rgba(255, 69, 0, 0.05);
             box-shadow: inset 4px 0 0 var(--accent);
         }
 
-        /* Skills Sidebar Layout */
         .skills-section {
             margin-top: 2rem;
             border-top: 1px solid var(--border);
@@ -171,7 +197,6 @@
             font-family: monospace;
         }
 
-        /* Right Column: Details */
         .project-detail {
             display: none; 
             background-color: var(--bg-panel);
@@ -199,7 +224,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* Keeping the image class ready for when you need it later */
         .project-image {
             width: 100%;
             height: auto;
@@ -211,15 +235,19 @@
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- NAVIGATION BAR -->
-    <nav>
+<!-- Interactive Background Element -->
+<div class="magma-bg"></div>
+
+<!-- Unified Navigation Bar -->
+<nav class="main-nav">
+    <div class="nav-container">
         <a href="index.html">Intro</a>
         <a href="research.html" class="active">Research & Experience</a>
         <a href="contact.html">Contact</a>
-    </nav>
+    </div>
+</nav>
 
+<div class="content-container">
     <span class="meta">02 · RESEARCH AND EXPERIENCE</span>
 
     <div class="research-container">
@@ -246,7 +274,7 @@
                 <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
             </button>
 
-            <!-- SKILLS CATEGORIES (Added below projects) -->
+            <!-- SKILLS CATEGORIES -->
             <div class="skills-section">
                 <div class="skill-category">
                     <h4>Combustion & Flows</h4>
@@ -298,10 +326,8 @@
                 <span class="meta">APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh</span>
                 <p>Investigating pressure-density coupling and complex baroclinic vorticity generation across an air-helium interface.</p>
                 
-                <!-- Inserted Image -->
                 <img src="1.png" alt="Schematic" class="project-image" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
                 
-                <!-- Optional: Add a small caption below the image -->
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
                     <em>Schematic of transverse pressure interaction with Coaxial flows</em>
                 </p>
@@ -334,7 +360,6 @@
                 <h2>Sea Wave Detection via Deep Learning</h2>
                 <span class="meta">RAFT Lab, IIT Madras | Prof. Ranjith Mohan</span>
                 <p>Summer Research Intern. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
-                <!-- Image goes here later -->
             </div>
 
             <!-- Project 4 Detail -->
@@ -342,35 +367,52 @@
                 <h2>AIAA DBF 2026</h2>
                 <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
                 <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
-                <!-- Image goes here later -->
             </div>
 
         </div>
     </div>
-
 </div>
 
-<!-- Interactive Logic for the Menu -->
 <script>
     function showProject(projectId, buttonElement) {
-        // 1. Hide all project details
         const allDetails = document.querySelectorAll('.project-detail');
         allDetails.forEach(detail => {
             detail.style.display = 'none';
         });
 
-        // 2. Remove the active highlight from all buttons
         const allButtons = document.querySelectorAll('.project-link');
         allButtons.forEach(btn => {
             btn.classList.remove('active-project');
         });
 
-        // 3. Show the selected project detail
         document.getElementById(projectId).style.display = 'block';
-
-        // 4. Add the active highlight to the clicked button
         buttonElement.classList.add('active-project');
     }
+</script>
+
+<!-- Script for Interactive Magma Effect -->
+<script>
+    const bg = document.querySelector('.magma-bg');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateBg() {
+        currentX += (mouseX - currentX) * 0.08;
+        currentY += (mouseY - currentY) * 0.08;
+        
+        bg.style.setProperty('--mouse-x', `${currentX}px`);
+        bg.style.setProperty('--mouse-y', `${currentY}px`);
+        
+        requestAnimationFrame(animateBg);
+    }
+    animateBg();
 </script>
 
 </body>
