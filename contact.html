@@ -5,145 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Aanantha Krishnan N.</title>
     <link rel="icon" type="image/png" href="icon.png">
+
     <style>
-        /* Magma & Black Hole Theme */
         :root {
-            --bg-color: #5c1400; 
-            --text-main: #fcebdc; 
-            --text-muted: #ffbba1;
-            --text-bright: #ffffff;
-            --accent: #ff6a00; 
-            --border: #8a2b00;
-            --bg-panel: rgba(20, 5, 0, 0.85); 
-            
-            --mouse-x: 50vw;
-            --mouse-y: 50vh;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            overflow-x: hidden;
+            --bg: #0b0d0f;
+            --panel: #111417;
+            --text: #f2f4f5;
+            --muted: #9ca3aa;
+            --accent: #7cc4ff;
+            --border: #252a2f;
+            --border-strong: #353c43;
+            --max-width: 1100px;
         }
 
-        .magma-bg {
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: "";
             position: fixed;
-            top: -10%; left: -10%; width: 120%; height: 120%; 
+            inset: 0;
+            pointer-events: none;
             z-index: -1;
-            background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(255, 150, 0, 0.25) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 150, 0, 0.25) 1px, transparent 1px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, #000000 6px, rgba(0,0,0,0.8) 18px, transparent 50px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 15px, rgba(255, 80, 0, 0.95) 45px, rgba(255, 140, 0, 0.3) 120px, transparent 250px),
-                radial-gradient(circle at 20% 20%, #a32200 0%, transparent 60%),
-                radial-gradient(circle at 80% 80%, #d63600 0%, transparent 60%),
-                radial-gradient(circle at 50% 100%, #ff4500 0%, transparent 80%);
-            background-size: 
-                50px 50px, 50px 50px, 
-                100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-            background-position: 
-                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
-                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
-                0 0, 0 0, 0 0, 0 0, 0 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 42px 42px;
         }
 
         .main-nav {
-            border-bottom: 1px solid rgba(255, 100, 0, 0.3);
-            margin-bottom: 3rem;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-            background: linear-gradient(to bottom, rgba(30, 5, 0, 0.9), transparent);
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 13, 15, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 2rem 2rem 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-container a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
+            color: var(--muted);
             text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding-bottom: 0.35rem;
+            border-bottom: 2px solid transparent;
             transition: color 0.2s ease, border-color 0.2s ease;
         }
 
-        .nav-container a:hover {
-            color: var(--text-bright);
+        .nav-container a:hover,
+        .nav-container a.active {
+            color: var(--text);
         }
 
         .nav-container a.active {
-            color: var(--text-bright);
-            font-weight: 600;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 1.15rem;
+            border-bottom-color: var(--accent);
         }
 
         .content-container {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 2rem 4rem 2rem;
-            position: relative;
-            z-index: 10;
+            padding: 4rem 2rem 6rem;
         }
 
-        /* Enclosed Contact grid in the glass panel so it stays readable */
+        .page-label {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            margin-top: 2rem;
-            background-color: var(--bg-panel);
-            padding: 4rem;
-            border-radius: 12px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 1px;
+            background: var(--border);
             border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
 
-        @media (min-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
+        .contact-left,
+        .contact-right {
+            background: var(--panel);
+            padding: 3rem;
         }
 
-        .serif-heading {
-            font-family: "Georgia", "Times New Roman", serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            color: var(--text-bright);
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+        .contact-left {
+            border-left: 3px solid var(--accent);
+        }
+
+        .section-heading {
+            margin: 0 0 1rem;
+            color: var(--text);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            font-weight: 700;
         }
 
         .contact-left p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            max-width: 480px;
+            margin: 0 0 2.5rem;
+            color: var(--muted);
+            font-size: 1.05rem;
         }
 
         .primary-link {
-            font-family: monospace;
-            font-size: 1rem;
-            color: var(--text-bright);
+            display: inline-block;
+            color: var(--text);
             text-decoration: none;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.92rem;
             border-bottom: 1px solid var(--accent);
-            padding-bottom: 0.3rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: opacity 0.2s ease;
+            padding-bottom: 0.25rem;
         }
 
         .primary-link:hover {
@@ -153,17 +149,16 @@
         .elsewhere-links {
             display: flex;
             gap: 1.5rem;
-            margin-bottom: 4rem;
+            margin: 0 0 3.5rem;
         }
 
         .elsewhere-links a {
-            font-family: monospace;
-            font-size: 1rem;
-            color: var(--text-bright);
+            color: var(--text);
             text-decoration: none;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.2s ease;
+            letter-spacing: 0.08em;
         }
 
         .elsewhere-links a:hover {
@@ -171,95 +166,92 @@
         }
 
         .meta {
-            font-size: 0.85rem;
-            font-family: monospace;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1rem;
             display: block;
-            letter-spacing: 0.1em;
+            margin-bottom: 0.9rem;
+            color: var(--accent);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
         }
 
         .tag-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
+            gap: 0.55rem;
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 100, 0, 0.3);
-            padding: 0.4rem 1.2rem;
-            font-size: 0.9rem;
-            border-radius: 50px; 
-            color: var(--text-bright);
+            padding: 0.45rem 0.75rem;
+            border: 1px solid var(--border-strong);
+            background: #0d1012;
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        @media (max-width: 800px) {
+            .nav-container {
+                gap: 1.1rem;
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .content-container {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-left,
+            .contact-right {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
-
-<div class="magma-bg"></div>
-
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html">Intro</a>
-        <a href="research.html">Research & Experience</a>
-        <a href="contact.html" class="active">Contact</a>
-    </div>
-</nav>
-
-<div class="content-container">
-    <div class="contact-grid">
-        
-        <div class="contact-left">
-            <h1 class="serif-heading">Let's Talk</h1>
-            <p>Always open to interesting conversations and opportunities.</p>
-            <a href="mailto:krishnavarathinam@gmail.com" class="primary-link">krishnavarathinam@gmail.com</a>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html">Intro</a>
+            <a href="research.html">Research &amp; Experience</a>
+            <a href="contact.html" class="active">Contact</a>
         </div>
+    </nav>
 
-        <div class="contact-right">
-            <h1 class="serif-heading">Elsewhere</h1>
-            <div class="elsewhere-links">
-                <a href="https://drive.google.com/file/d/1ELw5-GfhtZPQdoPpLB-WOIL-xqNwwHk9/view?usp=drive_link" target="_blank">CV</a>
-                <a href="https://www.linkedin.com/in/aananthakrishnan/" target="_blank">LinkedIn</a>
-            </div>
+    <main class="content-container">
+        <div class="page-label">03 · Contact</div>
 
-            <span class="meta">Beyond Engineering</span>
-            <div class="tag-container">
-                <span class="tag">Strength Training</span>
-                <span class="tag">Running & Swimming</span>
-                <span class="tag">Exploring Nature</span>
-                <span class="tag">Making Memories with Friends</span>
-            </div>
+        <div class="contact-grid">
+            <section class="contact-left">
+                <h1 class="section-heading">Let's Talk</h1>
+                <p>Always open to interesting conversations and opportunities.</p>
+                <a href="mailto:krishnavarathinam@gmail.com" class="primary-link">
+                    krishnavarathinam@gmail.com
+                </a>
+            </section>
+
+            <section class="contact-right">
+                <h2 class="section-heading">Elsewhere</h2>
+
+                <div class="elsewhere-links">
+                    <a href="https://drive.google.com/file/d/1ELw5-GfhtZPQdoPpLB-WOIL-xqNwwHk9/view?usp=drive_link" target="_blank" rel="noopener noreferrer">CV</a>
+                    <a href="https://www.linkedin.com/in/aananthakrishnan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+
+                <span class="meta">Beyond Engineering</span>
+
+                <div class="tag-container">
+                    <span class="tag">Strength Training</span>
+                    <span class="tag">Running &amp; Swimming</span>
+                    <span class="tag">Exploring Nature</span>
+                    <span class="tag">Making Memories with Friends</span>
+                </div>
+            </section>
         </div>
-
-    </div>
-</div>
-
-<script>
-    const bg = document.querySelector('.magma-bg');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animateBg() {
-        currentX += (mouseX - currentX) * 0.08;
-        currentY += (mouseY - currentY) * 0.08;
-        
-        bg.style.setProperty('--mouse-x', `${currentX}px`);
-        bg.style.setProperty('--mouse-y', `${currentY}px`);
-        
-        requestAnimationFrame(animateBg);
-    }
-    animateBg();
-</script>
-
+    </main>
 </body>
 </html>
