@@ -5,456 +5,483 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Aanantha Krishnan N.</title>
     <link rel="icon" type="image/png" href="icon.png">
+
     <style>
-        /* Magma & Black Hole Theme */
         :root {
-            --bg-color: #5c1400; 
-            --text-main: #fcebdc; 
-            --text-muted: #ffbba1;
-            --text-bright: #ffffff;
-            --accent: #ff6a00; 
-            --border: #8a2b00;
-            --bg-panel: rgba(20, 5, 0, 0.85); 
-            
-            --mouse-x: 50vw;
-            --mouse-y: 50vh;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            overflow-x: hidden;
+            --bg: #0b0d0f;
+            --panel: #111417;
+            --panel-2: #0e1012;
+            --text: #f2f4f5;
+            --muted: #9ca3aa;
+            --accent: #7cc4ff;
+            --border: #252a2f;
+            --border-strong: #353c43;
+            --max-width: 1100px;
         }
 
-        .magma-bg {
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: "";
             position: fixed;
-            top: -10%; left: -10%; width: 120%; height: 120%; 
+            inset: 0;
+            pointer-events: none;
             z-index: -1;
-            background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(255, 150, 0, 0.25) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 150, 0, 0.25) 1px, transparent 1px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, #000000 6px, rgba(0,0,0,0.8) 18px, transparent 50px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 15px, rgba(255, 80, 0, 0.95) 45px, rgba(255, 140, 0, 0.3) 120px, transparent 250px),
-                radial-gradient(circle at 20% 20%, #a32200 0%, transparent 60%),
-                radial-gradient(circle at 80% 80%, #d63600 0%, transparent 60%),
-                radial-gradient(circle at 50% 100%, #ff4500 0%, transparent 80%);
-            background-size: 
-                50px 50px, 50px 50px, 
-                100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-            background-position: 
-                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
-                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
-                0 0, 0 0, 0 0, 0 0, 0 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 42px 42px;
         }
 
         .main-nav {
-            border-bottom: 1px solid rgba(255, 100, 0, 0.3);
-            margin-bottom: 3rem;
-            width: 100%;
-            position: relative;
-            z-index: 10;
-            background: linear-gradient(to bottom, rgba(30, 5, 0, 0.9), transparent);
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 13, 15, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 2rem 2rem 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-container a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
+            color: var(--muted);
             text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding-bottom: 0.35rem;
+            border-bottom: 2px solid transparent;
             transition: color 0.2s ease, border-color 0.2s ease;
         }
 
-        .nav-container a:hover {
-            color: var(--text-bright);
+        .nav-container a:hover,
+        .nav-container a.active {
+            color: var(--text);
         }
 
         .nav-container a.active {
-            color: var(--text-bright);
-            font-weight: 600;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 1.15rem;
+            border-bottom-color: var(--accent);
         }
 
         .content-container {
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 2rem 4rem 2rem;
-            position: relative;
-            z-index: 10;
+            padding: 4rem 2rem 6rem;
         }
 
-        .meta {
-            font-size: 0.85rem;
-            font-family: monospace;
-            text-transform: uppercase;
+        .page-label {
+            margin-bottom: 1.5rem;
             color: var(--accent);
-            margin-bottom: 1rem;
-            display: block;
-            letter-spacing: 0.1em;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
         }
 
         .research-container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-            align-items: start;
+            grid-template-columns: 0.9fr 1.6fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            align-items: stretch;
         }
 
-        @media (min-width: 768px) {
-            .research-container {
-                grid-template-columns: 1fr 2fr; 
-                gap: 4rem;
-            }
+        .project-sidebar,
+        .project-content {
+            background: var(--panel);
+        }
+
+        .project-sidebar {
+            padding: 1rem;
         }
 
         .project-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.65rem;
         }
 
         .project-link {
-            background: var(--bg-panel);
+            width: 100%;
+            appearance: none;
             border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
+            background: var(--panel-2);
+            color: var(--muted);
+            padding: 1.1rem 1.15rem;
             text-align: left;
-            transition: all 0.2s ease;
-            color: var(--text-muted);
-            backdrop-filter: blur(5px);
+            cursor: pointer;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
         }
 
         .project-link h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
+            margin: 0 0 0.35rem;
             color: inherit;
+            font-size: 1rem;
+            line-height: 1.3;
+            font-weight: 650;
         }
 
         .project-link .sub-meta {
-            font-family: monospace;
-            font-size: 0.8rem;
             margin: 0;
+            color: inherit;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+            line-height: 1.5;
         }
 
         .project-link:hover {
-            border-color: var(--accent);
-            color: var(--text-bright);
+            color: var(--text);
+            border-color: var(--border-strong);
         }
 
         .project-link.active-project {
+            color: var(--text);
             border-color: var(--accent);
-            color: var(--text-bright);
-            background-color: rgba(255, 69, 0, 0.15);
-            box-shadow: inset 4px 0 0 var(--accent);
+            background: #151a1f;
+            box-shadow: inset 3px 0 0 var(--accent);
         }
 
         .skills-section {
-            margin-top: 2rem;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-            background: var(--bg-panel);
-            padding: 2rem;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
+            margin-top: 1rem;
+            padding: 1.3rem;
+            border: 1px solid var(--border);
+            background: var(--panel-2);
         }
 
         .skill-category {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
         }
 
         .skill-category h4 {
-            font-size: 0.75rem;
-            font-family: monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            margin: 0 0 0.6rem;
             color: var(--accent);
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-weight: bold;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.45rem;
         }
 
         .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 100, 0, 0.3);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            border-radius: 50px;
-            color: var(--text-bright);
-            font-family: monospace;
+            padding: 0.3rem 0.55rem;
+            border: 1px solid var(--border);
+            background: #0b0e10;
+            color: var(--muted);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .project-content {
+            min-width: 0;
         }
 
         .project-detail {
-            display: none; 
-            background-color: var(--bg-panel);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            animation: fadeIn 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            display: none;
+            padding: 2.75rem;
         }
 
         .project-detail h2 {
-            font-size: 2rem;
-            color: var(--text-bright);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
+            margin: 0 0 0.45rem;
+            color: var(--text);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .meta {
+            display: block;
+            margin-bottom: 1.4rem;
+            color: var(--accent);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .project-detail p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            margin: 0 0 1.2rem;
+            color: var(--muted);
+            font-size: 1rem;
         }
-        
+
+        .project-detail strong,
+        .project-detail h3 {
+            color: var(--text);
+        }
+
         .project-image {
+            display: block;
             width: 100%;
             height: auto;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            margin-top: 1.5rem;
+            margin: 1.35rem auto 0;
+            border: 1px solid var(--border-strong);
+            background: #090b0d;
+        }
+
+        .figure-caption {
+            margin: 0.55rem 0 0;
+            color: #7f8991;
+            text-align: center;
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 850px) {
+            .nav-container {
+                gap: 1.1rem;
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .content-container {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            .research-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-detail {
+                padding: 2rem 1.4rem;
+            }
         }
     </style>
 </head>
+
 <body>
-
-<div class="magma-bg"></div>
-
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="index.html">Intro</a>
-        <a href="research.html" class="active">Research & Experience</a>
-        <a href="contact.html">Contact</a>
-    </div>
-</nav>
-
-<div class="content-container">
-    <span class="meta">02 · RESEARCH AND EXPERIENCE</span>
-
-    <div class="research-container">
-        
-        <div class="project-list">
-            <button class="project-link active-project" onclick="showProject('project-1', this)">
-                <h3>Density-Stratified Flows</h3>
-                <p class="sub-meta">APSYS Lab | Jan 2027 – Present</p>
-            </button>
-            
-            <button class="project-link" onclick="showProject('project-2', this)">
-                <h3>Vertical Dump Combustor</h3>
-                <p class="sub-meta">APSYS Lab | May 2024 – Dec 2024</p>
-            </button>
-
-            <button class="project-link" onclick="showProject('project-3', this)">
-                <h3>Sea Wave Detection</h3>
-                <p class="sub-meta">RAFT Lab | May 2025 – Jun 2025</p>
-            </button>
-
-            <button class="project-link" onclick="showProject('project-4', this)">
-                <h3>AIAA DBF 2026</h3>
-                <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
-            </button>
-
-            <div class="skills-section">
-                <div class="skill-category">
-                    <h4>Combustion & Flows</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Thermoacoustics</span>
-                        <span class="skill-tag">Aerodynamics</span>
-                        <span class="skill-tag">Baroclinic Vorticity</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Diagnostics & DAQ</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Schlieren</span>
-                        <span class="skill-tag">Shadowgraphy</span>
-                        <span class="skill-tag">High-Speed DAQ</span>
-                        <span class="skill-tag">LabVIEW</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>CAD & CFD</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ANSYS Fluent</span>
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">Onshape</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Programming & AI</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">C/C++</span>
-                    </div>
-                </div>
-            </div>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html">Intro</a>
+            <a href="research.html" class="active">Research &amp; Experience</a>
+            <a href="contact.html">Contact</a>
         </div>
+    </nav>
 
-        <div class="project-content">
-            
-            <div id="project-1" class="project-detail" style="display: block;">
-                <h2>Shear Coaxial Flow Interaction with Transverse Pressure Waves</h2>
-                <span class="meta">APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh</span>
-                <p>Investigating pressure-density coupling and complex baroclinic vorticity generation across an air-helium interface.</p>
-                
-                <img src="1.png" alt="Schematic" class="project-image" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
-                
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>Schematic of transverse pressure interaction with Coaxial flows</em>
-                </p>
-                <p>Developed an end-to-end CFD framework in ANSYS Fluent to simulate baseline shock interactions and RMI onset.</p>
-                <video autoplay loop muted playsinline class="project-image" style="width: 100%; display: block; margin-left: auto; margin-right: auto;">
-                    <source src="Media1.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>Figure: Side-by-side numerical Schlieren and Helium mass fraction capturing flow instabilities.</em>
-                </p>
-                <p>Designed the test rig, utilizing Schlieren for high-speed optical diagnostics of shock-wave interactions.</p>
-            </div>
+    <main class="content-container">
+        <div class="page-label">02 · Research and Experience</div>
 
-            <div id="project-2" class="project-detail">
-                <h2>Vertical Dump Combustor</h2>
-                <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
-                <p>Characterized vertical dump combustor instabilities by identifying dominant acoustic modes. Performed FFT and spectrogram analysis on Kistler pressure-sensor data acquired through a high-speed DAQ system, maintaining a custom water-cooling loop for sensor fidelity.</p>
-                <img src="Picture4.png" alt="Schematic" class="project-image" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>FFT and Spectogram analysis in one of the test case</em>
-                </p>
-            </div>
+        <div class="research-container">
+            <aside class="project-sidebar">
+                <div class="project-list">
+                    <button class="project-link active-project" onclick="showProject('project-1', this)">
+                        <h3>Density-Stratified Flows</h3>
+                        <p class="sub-meta">APSYS Lab | Jan 2027 – Present</p>
+                    </button>
 
-            <div id="project-3" class="project-detail">
-                <h2>Sea Wave Detection via Deep Learning</h2>
-                <span class="meta">RAFT Lab, IIT Madras | Prof. Ranjith Mohan</span>
-                <p>Summer Research Intern. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
-            </div>
+                    <button class="project-link" onclick="showProject('project-2', this)">
+                        <h3>Vertical Dump Combustor</h3>
+                        <p class="sub-meta">APSYS Lab | May 2024 – Dec 2024</p>
+                    </button>
 
-            <!-- Project 4 Detail -->
-            <!-- Project 4 Detail -->
-            <div id="project-4" class="project-detail">
-                <h2>AIAA DBF 2026</h2>
-                <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
-                <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
-                
-                <p style="margin-top: 1.5rem;"><strong>Proposal Phase Optimization & Trade Studies:</strong> Developed custom numerical sizing pipelines to mathematically evaluate performance spaces, optimize flight parameters, and maximize score leverage before fabrication.</p>
-                
-                <!-- Side-by-side container for Pic 1 and Pic 3 -->
-                <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 260px; text-align: center;">
-                        <img src="pic1.png" alt="M3 design optimisation in cruise" class="project-image" style="width: 100%; margin-top: 0;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                            <em>M3 Design Optimisation in Cruise</em>
-                        </p>
-                    </div>
-                    <div style="flex: 1; min-width: 260px; text-align: center;">
-                        <img src="pic3.png" alt="M3 design optimisation for Battery" class="project-image" style="width: 100%; margin-top: 0;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                            <em>M3 Design Optimisation for Battery</em>
-                        </p>
-                    </div>
+                    <button class="project-link" onclick="showProject('project-3', this)">
+                        <h3>Sea Wave Detection</h3>
+                        <p class="sub-meta">RAFT Lab | May 2025 – Jun 2025</p>
+                    </button>
+
+                    <button class="project-link" onclick="showProject('project-4', this)">
+                        <h3>AIAA DBF 2026</h3>
+                        <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
+                    </button>
                 </div>
 
-                <!-- Bottom image (Pic 2: Sensitivity Analysis) -->
-                <div style="margin-top: 1.5rem; text-align: center;">
-                    <img src="pic2.png" alt="Sensitivity analysis M2 and M3" class="project-image" style="width: 75%; display: block; margin-left: auto; margin-right: auto; margin-top: 0;">
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                        <em>Sensitivity Analysis of M2 & M3 Parameters</em>
+                <div class="skills-section">
+                    <div class="skill-category">
+                        <h4>Combustion &amp; Flows</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Thermoacoustics</span>
+                            <span class="skill-tag">Aerodynamics</span>
+                            <span class="skill-tag">Baroclinic Vorticity</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Diagnostics &amp; DAQ</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Schlieren</span>
+                            <span class="skill-tag">Shadowgraphy</span>
+                            <span class="skill-tag">High-Speed DAQ</span>
+                            <span class="skill-tag">LabVIEW</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>CAD &amp; CFD</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ANSYS Fluent</span>
+                            <span class="skill-tag">SolidWorks</span>
+                            <span class="skill-tag">Onshape</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Programming &amp; AI</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">C/C++</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="project-content">
+                <article id="project-1" class="project-detail" style="display: block;">
+                    <h2>Shear Coaxial Flow Interaction with Transverse Pressure Waves</h2>
+                    <span class="meta">APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh</span>
+
+                    <p>
+                        Investigating pressure-density coupling and complex baroclinic
+                        vorticity generation across an air-helium interface.
                     </p>
-                </div>
 
-                <!-- Hardware & CAD Implementation -->
-                <h3 style="font-size: 1.3rem; color: var(--text-bright); margin-top: 2.5rem; margin-bottom: 1rem;">Hardware & CAD Implementation</h3>
-                
-                <img src="Picture1.jpg" alt="Pushpak UAV CAD Model" class="project-image" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>3D CAD design of the Pushpak aircraft</em>
-                </p>
+                    <img src="1.png" alt="Schematic" class="project-image" style="width: 50%;">
+                    <p class="figure-caption">
+                        <em>Schematic of transverse pressure interaction with Coaxial flows</em>
+                    </p>
 
-                <img src="Picture2.jpg" alt="Fabricated Airframe" class="project-image" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>Fabricated structural airframe and custom mechanisms</em>
-                </p>
-            </div>
+                    <p>
+                        Developed an end-to-end CFD framework in ANSYS Fluent to simulate
+                        baseline shock interactions and RMI onset.
+                    </p>
 
+                    <video autoplay loop muted playsinline class="project-image">
+                        <source src="Media1.gif" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <p class="figure-caption">
+                        <em>Figure: Side-by-side numerical Schlieren and Helium mass fraction capturing flow instabilities.</em>
+                    </p>
+
+                    <p>
+                        Designed the test rig, utilizing Schlieren for high-speed optical
+                        diagnostics of shock-wave interactions.
+                    </p>
+                </article>
+
+                <article id="project-2" class="project-detail">
+                    <h2>Vertical Dump Combustor</h2>
+                    <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
+
+                    <p>
+                        Characterized vertical dump combustor instabilities by identifying
+                        dominant acoustic modes. Performed FFT and spectrogram analysis on
+                        Kistler pressure-sensor data acquired through a high-speed DAQ system,
+                        maintaining a custom water-cooling loop for sensor fidelity.
+                    </p>
+
+                    <img src="Picture4.png" alt="FFT and spectrogram analysis" class="project-image" style="width: 80%;">
+                    <p class="figure-caption">
+                        <em>FFT and Spectogram analysis in one of the test case</em>
+                    </p>
+                </article>
+
+                <article id="project-3" class="project-detail">
+                    <h2>Sea Wave Detection via Deep Learning</h2>
+                    <span class="meta">RAFT Lab, IIT Madras | Prof. Ranjith Mohan</span>
+
+                    <p>
+                        Summer Research Intern. Developed a custom computer vision pipeline
+                        using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR
+                        depth camera for real-time wave height estimation to forecast sea conditions.
+                    </p>
+                </article>
+
+                <article id="project-4" class="project-detail">
+                    <h2>AIAA DBF 2026</h2>
+                    <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
+
+                    <p>
+                        Led the 3D CAD design of the Pushpak aircraft using Onshape for the
+                        AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered
+                        custom deployment mechanisms and fabricated the structural airframe
+                        using aeroply, balsa, and composite materials.
+                    </p>
+
+                    <p>
+                        <strong>Proposal Phase Optimization &amp; Trade Studies:</strong>
+                        Developed custom numerical sizing pipelines to mathematically evaluate
+                        performance spaces, optimize flight parameters, and maximize score leverage
+                        before fabrication.
+                    </p>
+
+                    <div style="display: flex; gap: 1.25rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 260px; text-align: center;">
+                            <img src="pic1.png" alt="M3 design optimisation in cruise" class="project-image" style="margin-top: 0;">
+                            <p class="figure-caption"><em>M3 Design Optimisation in Cruise</em></p>
+                        </div>
+
+                        <div style="flex: 1; min-width: 260px; text-align: center;">
+                            <img src="pic3.png" alt="M3 design optimisation for Battery" class="project-image" style="margin-top: 0;">
+                            <p class="figure-caption"><em>M3 Design Optimisation for Battery</em></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <img src="pic2.png" alt="Sensitivity analysis M2 and M3" class="project-image" style="width: 75%;">
+                        <p class="figure-caption"><em>Sensitivity Analysis of M2 &amp; M3 Parameters</em></p>
+                    </div>
+
+                    <h3 style="font-size: 1.3rem; margin: 2.5rem 0 1rem;">
+                        Hardware &amp; CAD Implementation
+                    </h3>
+
+                    <img src="Picture1.jpg" alt="Pushpak UAV CAD Model" class="project-image" style="width: 70%;">
+                    <p class="figure-caption"><em>3D CAD design of the Pushpak aircraft</em></p>
+
+                    <img src="Picture2.jpg" alt="Fabricated Airframe" class="project-image" style="width: 70%;">
+                    <p class="figure-caption"><em>Fabricated structural airframe and custom mechanisms</em></p>
+                </article>
+            </section>
         </div>
-    </div>
-</div>
+    </main>
 
-<script>
-    function showProject(projectId, buttonElement) {
-        const allDetails = document.querySelectorAll('.project-detail');
-        allDetails.forEach(detail => {
-            detail.style.display = 'none';
-        });
+    <script>
+        function showProject(projectId, buttonElement) {
+            document.querySelectorAll('.project-detail').forEach(detail => {
+                detail.style.display = 'none';
+            });
 
-        const allButtons = document.querySelectorAll('.project-link');
-        allButtons.forEach(btn => {
-            btn.classList.remove('active-project');
-        });
+            document.querySelectorAll('.project-link').forEach(button => {
+                button.classList.remove('active-project');
+            });
 
-        document.getElementById(projectId).style.display = 'block';
-        buttonElement.classList.add('active-project');
-    }
-</script>
-
-<script>
-    const bg = document.querySelector('.magma-bg');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animateBg() {
-        currentX += (mouseX - currentX) * 0.08;
-        currentY += (mouseY - currentY) * 0.08;
-        
-        bg.style.setProperty('--mouse-x', `${currentX}px`);
-        bg.style.setProperty('--mouse-y', `${currentY}px`);
-        
-        requestAnimationFrame(animateBg);
-    }
-    animateBg();
-</script>
-
+            document.getElementById(projectId).style.display = 'block';
+            buttonElement.classList.add('active-project');
+        }
+    </script>
 </body>
 </html>
