@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <link rel="icon" type="image/png" href="icon.png">
-    <style>
+    <style>`
         :root {
             --text-main: #fcebdc; 
             --text-muted: #ffbba1;
@@ -132,7 +132,11 @@
         .hero-section {
             background-image: linear-gradient(to right, rgba(10, 2, 0, 0.95) 40%, rgba(10, 2, 0, 0.2) 70%), url('background.jpeg');
             background-size: cover;
-            background-position: left 20%; 
+            /* 
+              First number = horizontal (0% = far left, 50% = center, 100% = far right)
+              Second number = vertical (center = middle)
+            */
+            background-position: 60% center; 
             padding: 4rem 3rem;
             border-radius: 12px;
             border: 1px solid var(--border);
