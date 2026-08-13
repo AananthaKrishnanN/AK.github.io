@@ -5,191 +5,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <link rel="icon" type="image/png" href="icon.png">
-
     <style>
         :root {
-            --bg: #0b0d0f;
-            --panel: #111417;
-            --panel-2: #0e1012;
-            --text: #f2f4f5;
-            --muted: #9ca3aa;
-            --accent: #7cc4ff;
-            --border: #252a2f;
-            --border-strong: #353c43;
-            --max-width: 1100px;
+            --text-main: #fcebdc; 
+            --text-muted: #ffbba1;
+            --text-bright: #ffffff;
+            --accent: #ff6a00; 
+            --border: rgba(255, 80, 0, 0.3);
+            --bg-panel: rgba(10, 2, 0, 0.85); 
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050100;
+            color: var(--text-main);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
             font-size: 16px;
+            overflow-x: hidden;
+            cursor: none; /* Hides default cursor so the black hole is the only pointer */
         }
 
-        /* Subtle technical grid — static, not animated */
-        body::before {
-            content: "";
+        /* --- REALISTIC MAGMA BACKGROUND --- */
+        .magma-container {
             position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 42px 42px;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -3;
+            background: #2a0800;
+            overflow: hidden;
         }
 
+        /* Flowing Liquid Lava */
+        .lava-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            mix-blend-mode: screen;
+            animation: floatLava 20s infinite alternate ease-in-out;
+        }
+        .blob1 { width: 60vw; height: 60vw; background: #ff2a00; top: -20%; left: -10%; animation-duration: 25s; }
+        .blob2 { width: 50vw; height: 50vw; background: #ff7300; bottom: -10%; right: -10%; animation-duration: 20s; }
+        .blob3 { width: 70vw; height: 70vw; background: #880000; top: 20%; left: 30%; animation-duration: 30s; }
+
+        @keyframes floatLava {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 10%) scale(1.1); }
+        }
+
+        /* Magma Crust Texture (Fractal Noise) */
+        .magma-crust {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='4' result='turbulence'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.9 0' in='turbulence'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* --- THE INSTANT BLACK HOLE CURSOR --- */
+        .black-hole {
+            position: fixed;
+            top: 0; left: 0;
+            width: 25px; height: 25px;
+            background: #000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 
+                0 0 15px 8px #ff4500,
+                0 0 30px 15px #ff1100,
+                0 0 60px 30px rgba(255, 69, 0, 0.4);
+            /* Hardware-accelerated centering */
+            transform: translate3d(-50%, -50%, 0);
+            will-change: transform;
+        }
+
+        /* --- LAYOUT & PANELS --- */
         .main-nav {
             border-bottom: 1px solid var(--border);
-            background: rgba(11, 13, 15, 0.96);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            margin-bottom: 3rem;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            background: var(--bg-panel);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
-            max-width: var(--max-width);
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 2rem 2rem 1rem 2rem;
             display: flex;
-            align-items: center;
             gap: 2rem;
         }
 
         .nav-container a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.09em;
-            padding-bottom: 0.35rem;
-            border-bottom: 2px solid transparent;
-            transition: color 0.2s ease, border-color 0.2s ease;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: none;
         }
 
-        .nav-container a:hover,
-        .nav-container a.active {
-            color: var(--text);
+        .nav-container a:hover, .nav-container a.active {
+            color: var(--text-bright);
         }
 
         .nav-container a.active {
-            border-bottom-color: var(--accent);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1.15rem;
         }
 
         .content-container {
-            max-width: var(--max-width);
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 5rem 2rem 6rem;
+            padding: 0 2rem 4rem 2rem;
+            position: relative;
+            z-index: 10;
         }
 
         .hero-section {
-            min-height: 65vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem 3.5rem;
-            background: var(--panel);
+            background-image: linear-gradient(to right, rgba(10, 2, 0, 0.95) 40%, rgba(10, 2, 0, 0.2) 70%), url('background.jpeg');
+            background-size: cover;
+            /* Corrected position syntax: First value controls horizontal offset, second controls vertical alignment */
+            background-position: 60% center; 
+            padding: 4rem 3rem;
+            border-radius: 12px;
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent);
-        }
-
-        .eyebrow {
-            margin: 0 0 1.2rem;
-            color: var(--accent);
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
         }
 
         h1 {
-            margin: 0 0 1.2rem;
-            color: var(--text);
-            font-size: clamp(2.8rem, 7vw, 5.2rem);
-            line-height: 1;
-            letter-spacing: -0.055em;
-            font-weight: 750;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            color: var(--text-bright);
         }
 
         .intro-text {
-            max-width: 760px;
-            margin: 0 0 1rem;
-            color: var(--muted);
-            font-size: 1.12rem;
-        }
-
-        .intro-text + .intro-text {
-            margin-top: 0.6rem;
-        }
-
-        .technical-line {
-            width: 100%;
-            max-width: 760px;
-            height: 1px;
-            margin: 1.8rem 0;
-            background: var(--border-strong);
-        }
-
-        @media (max-width: 700px) {
-            .nav-container {
-                gap: 1.1rem;
-                padding-left: 1.2rem;
-                padding-right: 1.2rem;
-                flex-wrap: wrap;
-            }
-
-            .content-container {
-                padding: 2rem 1.2rem 4rem;
-            }
-
-            .hero-section {
-                padding: 2.2rem 1.5rem;
-                min-height: auto;
-            }
+            font-size: 1.2rem;
+            max-width: 480px; 
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
         }
     </style>
 </head>
-
 <body>
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="active">Intro</a>
-            <a href="research.html">Research &amp; Experience</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
 
-    <main class="content-container">
-        <header class="hero-section">
-            <p class="eyebrow">01 · Aerospace Engineering</p>
-            <h1>Aanantha Krishnan N.</h1>
+<!-- Magma Environment -->
+<div class="magma-container">
+    <div class="lava-blob blob1"></div>
+    <div class="lava-blob blob2"></div>
+    <div class="lava-blob blob3"></div>
+</div>
+<div class="magma-crust"></div>
 
-            <div class="technical-line"></div>
+<!-- Instant Black Hole Cursor -->
+<div class="black-hole" id="blackHole"></div>
 
-            <p class="intro-text">
-                Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur,
-                an experimental propulsion researcher, and an active learner.
-            </p>
+<nav class="main-nav">
+    <div class="nav-container">
+        <a href="index.html" class="active">Intro</a>
+        <a href="research.html">Research & Experience</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
 
-            <p class="intro-text">
-                I spend my time figuring out why combustors become unstable and mapping
-                the reasons that drive them. I am developing expertise in thermoacoustic
-                instability, density-stratified flows, and combustion physics.
-            </p>
-        </header>
-    </main>
+<div class="content-container">
+    <header class="hero-section">
+        <h1>Aanantha Krishnan N.</h1>
+        <p class="intro-text">
+            Hi! I am a pre-final year Aerospace Engineering student at IIT Kharagpur, an experimental propulsion researcher, and an active learner.
+        </p>
+        <p class="intro-text">
+            I spend my time figuring out why combustors become unstable and mapping the reasons that drive them. I am developing expertise in thermoacoustic instability, density-stratified flows, and combustion physics.
+        </p>
+    </header>
+</div>
+
+<!-- Perfect Zero-Lag Tracking Script -->
+<script>
+    const bh = document.getElementById('blackHole');
+    document.addEventListener('mousemove', (e) => {
+        // Uses hardware acceleration (translate3d) for zero delay
+        bh.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    });
+</script>
+
 </body>
 </html>
