@@ -6,14 +6,15 @@
     <title>Contact | Aanantha Krishnan N.</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
-        /* Interactive Magma Flame Theme */
+        /* Magma & Black Hole Theme */
         :root {
-            --bg-color: #0f0500; 
+            --bg-color: #5c1400; 
             --text-main: #fcebdc; 
-            --text-muted: #c2886a;
+            --text-muted: #ffbba1;
             --text-bright: #ffffff;
-            --accent: #ff4500; 
-            --border: #3b1705;
+            --accent: #ff6a00; 
+            --border: #8a2b00;
+            --bg-panel: rgba(20, 5, 0, 0.85); 
             
             --mouse-x: 50vw;
             --mouse-y: 50vh;
@@ -30,31 +31,35 @@
             overflow-x: hidden;
         }
 
-        /* The Interactive Black Hole Magma Background */
         .magma-bg {
             position: fixed;
-            top: -5%; left: -5%; width: 110%; height: 110%; 
+            top: -10%; left: -10%; width: 120%; height: 120%; 
             z-index: -1;
             background-color: var(--bg-color);
             background-image: 
-                linear-gradient(rgba(255, 69, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 69, 0, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, rgba(0,0,0,0.8) 40px, transparent 120px),
-                radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 69, 0, 0.35) 80px, rgba(255, 140, 0, 0.1) 250px, transparent 450px);
-            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+                linear-gradient(rgba(255, 150, 0, 0.25) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 150, 0, 0.25) 1px, transparent 1px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, #000000 6px, rgba(0,0,0,0.8) 18px, transparent 50px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 15px, rgba(255, 80, 0, 0.95) 45px, rgba(255, 140, 0, 0.3) 120px, transparent 250px),
+                radial-gradient(circle at 20% 20%, #a32200 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, #d63600 0%, transparent 60%),
+                radial-gradient(circle at 50% 100%, #ff4500 0%, transparent 80%);
+            background-size: 
+                50px 50px, 50px 50px, 
+                100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
             background-position: 
-                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
-                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
-                0 0, 0 0;
+                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
+                calc(var(--mouse-x) * -0.06) calc(var(--mouse-y) * -0.06),
+                0 0, 0 0, 0 0, 0 0, 0 0;
         }
 
-        /* UNIFIED NAVIGATION */
         .main-nav {
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255, 100, 0, 0.3);
             margin-bottom: 3rem;
             width: 100%;
             position: relative;
             z-index: 10;
+            background: linear-gradient(to bottom, rgba(30, 5, 0, 0.9), transparent);
         }
 
         .nav-container {
@@ -71,7 +76,7 @@
             letter-spacing: 0.1em;
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, border-color 0.2s ease;
         }
 
         .nav-container a:hover {
@@ -93,22 +98,18 @@
             z-index: 10;
         }
 
-        .meta {
-            font-size: 0.85rem;
-            font-family: monospace;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            display: block;
-            letter-spacing: 0.1em;
-        }
-
-        /* Split Contact Layout */
+        /* Enclosed Contact grid in the glass panel so it stays readable */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 4rem;
             margin-top: 2rem;
+            background-color: var(--bg-panel);
+            padding: 4rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
 
         @media (min-width: 768px) {
@@ -136,7 +137,7 @@
         .primary-link {
             font-family: monospace;
             font-size: 1rem;
-            color: var(--accent);
+            color: var(--text-bright);
             text-decoration: none;
             border-bottom: 1px solid var(--accent);
             padding-bottom: 0.3rem;
@@ -146,7 +147,7 @@
         }
 
         .primary-link:hover {
-            opacity: 0.8;
+            color: var(--accent);
         }
 
         .elsewhere-links {
@@ -169,6 +170,16 @@
             color: var(--accent);
         }
 
+        .meta {
+            font-size: 0.85rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+            letter-spacing: 0.1em;
+        }
+
         .tag-container {
             display: flex;
             flex-wrap: wrap;
@@ -177,21 +188,19 @@
         }
 
         .tag {
-            background: transparent;
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 100, 0, 0.3);
             padding: 0.4rem 1.2rem;
             font-size: 0.9rem;
             border-radius: 50px; 
-            color: var(--text-main);
+            color: var(--text-bright);
         }
     </style>
 </head>
 <body>
 
-<!-- Interactive Background Element -->
 <div class="magma-bg"></div>
 
-<!-- Unified Navigation Bar -->
 <nav class="main-nav">
     <div class="nav-container">
         <a href="index.html">Intro</a>
@@ -201,17 +210,14 @@
 </nav>
 
 <div class="content-container">
-    <!-- 04 CONTACT SECTION -->
     <div class="contact-grid">
         
-        <!-- Left Side -->
         <div class="contact-left">
             <h1 class="serif-heading">Let's Talk</h1>
             <p>Always open to interesting conversations and opportunities.</p>
             <a href="mailto:krishnavarathinam@gmail.com" class="primary-link">krishnavarathinam@gmail.com</a>
         </div>
 
-        <!-- Right Side -->
         <div class="contact-right">
             <h1 class="serif-heading">Elsewhere</h1>
             <div class="elsewhere-links">
@@ -231,7 +237,6 @@
     </div>
 </div>
 
-<!-- Script for Interactive Magma Effect -->
 <script>
     const bg = document.querySelector('.magma-bg');
     let mouseX = window.innerWidth / 2;
