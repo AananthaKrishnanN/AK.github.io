@@ -6,47 +6,77 @@
     <title>Aanantha Krishnan N. | Aerospace Engineering</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
-        /* Clean Dark Engineering Theme */
+        /* Interactive Magma Flame Theme */
         :root {
-            --bg-color: #0d1117;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
+            --bg-color: #0f0500; /* Deepest warm black */
+            --text-main: #fcebdc; 
+            --text-muted: #c2886a;
             --text-bright: #ffffff;
-            --accent: #58a6ff;
-            --border: #30363d;
+            --accent: #ff4500; /* Magma Orange */
+            --border: #3b1705;
+            --bg-panel: #170902;
+            
+            /* Initial CSS variables for the mouse */
+            --mouse-x: 50vw;
+            --mouse-y: 50vh;
         }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            
-            /* Clean CAD-style structural grid (No flames) */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            
             color: var(--text-main);
             line-height: 1.7;
             margin: 0;
             padding: 0;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* --- THE INTERACTIVE BLACK HOLE MAGMA BACKGROUND --- */
+        .magma-bg {
+            position: fixed;
+            top: -5%; left: -5%; width: 110%; height: 110%; /* Oversized for parallax */
+            z-index: -1;
+            background-color: var(--bg-color);
+            
+            /* 
+               1. Subtle grid moving slightly opposite to the mouse
+               2. The dark "Black Hole" center
+               3. The glowing magma rim 
+            */
+            background-image: 
+                linear-gradient(rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 69, 0, 0.05) 1px, transparent 1px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), #000000 0%, rgba(0,0,0,0.8) 40px, transparent 120px),
+                radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 69, 0, 0.35) 80px, rgba(255, 140, 0, 0.1) 250px, transparent 450px);
+            
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+            
+            /* Creates the pulling/moving effect on the grid */
+            background-position: 
+                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
+                calc(var(--mouse-x) * -0.015) calc(var(--mouse-y) * -0.015),
+                0 0, 0 0;
         }
 
-        nav {
-            margin-bottom: 3rem;
+        /* --- UNIFIED NAVIGATION --- */
+        .main-nav {
             border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            position: relative;
+            z-index: 10;
         }
 
-        nav a {
-            margin-right: 2rem;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-container a {
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -55,22 +85,29 @@
             transition: color 0.2s ease;
         }
 
-        nav a:hover {
+        .nav-container a:hover {
             color: var(--text-bright);
         }
 
-        nav a.active {
+        .nav-container a.active {
             color: var(--text-bright);
             font-weight: 600;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 1.15rem;
         }
 
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
         /* Hero Background with your photo */
         .hero-section {
-            background-image: linear-gradient(to right, rgba(13, 17, 23, 1) 40%, rgba(13, 17, 23, 0.1) 70%), url('background.jpeg');
+            background-image: linear-gradient(to right, rgba(15, 5, 0, 1) 40%, rgba(15, 5, 0, 0.1) 70%), url('background.jpeg');
             background-size: cover;
-            /* Shifted exactly to left 30% as requested */
             background-position: left 40%; 
             padding: 4rem 3rem;
             border-radius: 12px;
@@ -106,15 +143,19 @@
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- NAVIGATION BAR -->
-    <nav>
+<!-- Interactive Background Element -->
+<div class="magma-bg"></div>
+
+<!-- Unified Navigation Bar -->
+<nav class="main-nav">
+    <div class="nav-container">
         <a href="index.html" class="active">Intro</a>
         <a href="research.html">Research & Experience</a>
         <a href="contact.html">Contact</a>
-    </nav>
+    </div>
+</nav>
 
+<div class="content-container">
     <!-- 01 INTRO WITH PHOTO BACKGROUND -->
     <header class="hero-section">
         <h1>Aanantha Krishnan N.</h1>
@@ -125,8 +166,33 @@
             I spend my time figuring out why combustors become unstable and mapping the reasons that drive them. I am developing expertise in thermoacoustic instability, density-stratified flows, and combustion physics.
         </p>
     </header>
-
 </div>
+
+<!-- Script for Interactive Magma Effect -->
+<script>
+    const bg = document.querySelector('.magma-bg');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateBg() {
+        // Easing factor (0.08) creates the fluid, trailing "pull" effect
+        currentX += (mouseX - currentX) * 0.08;
+        currentY += (mouseY - currentY) * 0.08;
+        
+        bg.style.setProperty('--mouse-x', `${currentX}px`);
+        bg.style.setProperty('--mouse-y', `${currentY}px`);
+        
+        requestAnimationFrame(animateBg);
+    }
+    animateBg();
+</script>
 
 </body>
 </html>
