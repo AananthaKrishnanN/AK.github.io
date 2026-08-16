@@ -6,7 +6,7 @@
     <title>Contact | Aanantha Krishnan N.</title>
     <link rel="icon" type="image/png" href="icon.png">
     <style>
-        /* Clean Dark Engineering Theme */
+        /* Base Dark Theme Variables */
         :root {
             --bg-color: #0d1117;
             --text-main: #c9d1d9;
@@ -14,6 +14,16 @@
             --text-bright: #ffffff;
             --accent: #58a6ff;
             --border: #30363d;
+        }
+
+        /* Light Theme Variables */
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
+            --text-main: #24292e;
+            --text-muted: #57606a;
+            --text-bright: #000000;
+            --accent: #0969da;
+            --border: #d0d7de;
         }
         
         body {
@@ -28,22 +38,42 @@
             margin: 0;
             padding: 0;
             font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            
+            /* Custom Rocket Cursor */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🚀</text></svg>') 0 0, auto;
+        }
+
+        [data-theme="light"] body {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+
+        a, button {
+            /* Custom Hover Fire Cursor */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🔥</text></svg>') 0 0, pointer;
         }
 
         .container {
-            max-width: 900px;
+            /* FIXED: Unified width to 1100px */
+            max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
 
+        /* Responsive Navigation */
         nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
             margin-bottom: 3rem;
             border-bottom: 1px solid var(--border);
             padding-bottom: 1rem;
         }
 
         nav a {
-            margin-right: 2rem;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -61,6 +91,24 @@
             font-weight: 600;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 1.15rem;
+            margin-bottom: -1rem;
+        }
+
+        .theme-toggle {
+            margin-left: auto;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .meta {
@@ -154,6 +202,12 @@
             border-radius: 50px;
             color: var(--text-main);
         }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container { padding: 2rem 1.5rem; }
+            .theme-toggle { margin-left: 0; }
+        }
     </style>
 </head>
 <body>
@@ -165,6 +219,7 @@
         <a href="index.html">Intro</a>
         <a href="research.html">Research & Experience</a>
         <a href="contact.html" class="active">Contact</a>
+        <button id="theme-toggle" class="theme-toggle">🌓 Theme</button>
     </nav>
 
     <!-- 04 CONTACT SECTION -->
@@ -197,6 +252,23 @@
     </div>
 
 </div>
+
+<script>
+    // Theme Toggle Logic
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let targetTheme = theme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', targetTheme);
+        localStorage.setItem('theme', targetTheme);
+    });
+</script>
 
 </body>
 </html>
