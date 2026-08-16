@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Aanantha Krishnan N.</title>
+    <title>Research | Aanantha Krishnan N</title>
     <link rel="icon" type="image/png" href="icon.png">
+
     <style>
-        /* Clean Dark Engineering Theme */
         :root {
             --bg-color: #0d1117;
             --text-main: #c9d1d9;
@@ -16,11 +16,12 @@
             --border: #30363d;
             --bg-panel: #161b22;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                         Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -32,7 +33,7 @@
         }
 
         .container {
-            max-width: 1100px; 
+            max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
@@ -74,7 +75,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* Interactive Split Layout */
         .research-container {
             display: grid;
             grid-template-columns: 1fr;
@@ -85,12 +85,11 @@
 
         @media (min-width: 768px) {
             .research-container {
-                grid-template-columns: 1fr 2fr; 
+                grid-template-columns: 1fr 2fr;
                 gap: 4rem;
             }
         }
 
-        /* Left Column: Menu */
         .project-list {
             display: flex;
             flex-direction: column;
@@ -132,7 +131,6 @@
             box-shadow: inset 4px 0 0 var(--accent);
         }
 
-        /* Skills Sidebar Layout */
         .skills-section {
             margin-top: 2rem;
             border-top: 1px solid var(--border);
@@ -170,9 +168,8 @@
             font-family: monospace;
         }
 
-        /* Right Column: Details */
         .project-detail {
-            display: none; 
+            display: none;
             background-color: var(--bg-panel);
             padding: 2.5rem;
             border-radius: 8px;
@@ -181,8 +178,14 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .project-detail h2 {
@@ -194,10 +197,10 @@
         }
 
         .project-detail p {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .project-image {
             width: 100%;
             height: auto;
@@ -205,51 +208,121 @@
             border: 1px solid var(--border);
             margin-top: 1.5rem;
         }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--text-bright);
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-button {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--accent);
+            background-color: rgba(88, 166, 255, 0.05);
+            color: var(--text-bright);
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            margin-bottom: 2rem;
+        }
+
+        .resource-button:hover {
+            background-color: rgba(88, 166, 255, 0.15);
+        }
+
+        .caption {
+            font-size: 0.85rem !important;
+            color: var(--text-muted);
+            margin-top: 0.5rem !important;
+            text-align: center;
+        }
+
+        .two-column-images {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .two-column-images > div {
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+        }
+
+        .two-column-images .project-image {
+            margin-top: 0;
+        }
     </style>
 </head>
+
 <body>
 
 <div class="container">
-    
-    <!-- NAVIGATION BAR -->
+
+    <!-- NAVIGATION -->
     <nav>
         <a href="index.html">Intro</a>
         <a href="research.html" class="active">Research & Experience</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-
     <div class="research-container">
-        
-        <!-- LEFT COLUMN: PROJECT MENU & SKILLS -->
+
+        <!-- LEFT COLUMN -->
         <div class="project-list">
-            <button class="project-link active-project" onclick="showProject('project-1', this)">
+
+            <!-- Project 1 -->
+            <button class="project-link active-project"
+                    onclick="showProject('project-1', this)">
                 <h3>Density-Stratified Flows</h3>
-                <p class="sub-meta">APSYS Lab | Jan 2027 – Present</p>
+                <p class="sub-meta">APSYS Lab | Aug 2025 – Present</p>
             </button>
-            
-            <button class="project-link" onclick="showProject('project-2', this)">
+
+            <!-- Project 2 -->
+            <button class="project-link"
+                    onclick="showProject('project-2', this)">
                 <h3>Vertical Dump Combustor</h3>
                 <p class="sub-meta">APSYS Lab | May 2024 – Dec 2024</p>
             </button>
 
-            <button class="project-link" onclick="showProject('project-3', this)">
+            <!-- Project 3 -->
+            <button class="project-link"
+                    onclick="showProject('project-3', this)">
+                <h3>Shock Tube & Optical Diagnostics</h3>
+                <p class="sub-meta">APSYS Lab | Experimental Work</p>
+            </button>
+
+            <!-- Project 4 -->
+            <button class="project-link"
+                    onclick="showProject('project-4', this)">
                 <h3>Sea Wave Detection</h3>
                 <p class="sub-meta">RAFT Lab | May 2025 – Jun 2025</p>
             </button>
 
-            <button class="project-link" onclick="showProject('project-4', this)">
+            <!-- Project 5 -->
+            <button class="project-link"
+                    onclick="showProject('project-5', this)">
                 <h3>AIAA DBF 2026</h3>
                 <p class="sub-meta">Design Team Lead | Nov 2025 – Apr 2026</p>
             </button>
 
-            <!-- SKILLS CATEGORIES -->
+
+            <!-- SKILLS -->
             <div class="skills-section">
+
                 <div class="skill-category">
-                    <h4>Combustion & Flows</h4>
+                    <h4>Research Areas</h4>
                     <div class="skill-tags">
+                        <span class="skill-tag">Combustion Instability</span>
                         <span class="skill-tag">Thermoacoustics</span>
-                        <span class="skill-tag">Aerodynamics</span>
+                        <span class="skill-tag">Vortex Dynamics</span>
+                        <span class="skill-tag">Compressible Flow</span>
+                        <span class="skill-tag">Density-Stratified Flow</span>
                         <span class="skill-tag">Baroclinic Vorticity</span>
                     </div>
                 </div>
@@ -259,17 +332,19 @@
                     <div class="skill-tags">
                         <span class="skill-tag">Schlieren</span>
                         <span class="skill-tag">Shadowgraphy</span>
+                        <span class="skill-tag">High-Speed Imaging</span>
                         <span class="skill-tag">High-Speed DAQ</span>
                         <span class="skill-tag">LabVIEW</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h4>CAD & CFD</h4>
+                    <h4>CFD & Engineering</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">ANSYS Fluent</span>
-                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">MATLAB</span>
                         <span class="skill-tag">Onshape</span>
+                        <span class="skill-tag">SolidWorks</span>
                     </div>
                 </div>
 
@@ -277,123 +352,298 @@
                     <h4>Programming & AI</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">C/C++</span>
                         <span class="skill-tag">PyTorch</span>
                         <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">PySR</span>
                     </div>
                 </div>
+
             </div>
         </div>
 
-        <!-- RIGHT COLUMN: PROJECT DETAILS -->
+
+        <!-- RIGHT COLUMN -->
         <div class="project-content">
-            
-           <!-- Project 1 Detail -->
+
+            <!-- PROJECT 1: DENSITY STRATIFIED FLOW -->
             <div id="project-1" class="project-detail" style="display: block;">
+
                 <h2>Shear Coaxial Flow Interaction with Transverse Pressure Waves</h2>
-                <span class="meta">APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh</span>
-                
-                <!-- Section Heading -->
-                <h3 style="font-size: 1.2rem; color: var(--text-bright); margin-top: 1.5rem; margin-bottom: 0.8rem;">Conference Submission</h3>
-                
-                <!-- AIAA Abstract Link Button -->
-                <div style="margin-bottom: 2rem;">
-                    <a href="https://drive.google.com/file/d/1l87rqQ0T5ipB8y-eTvRAcvV965FEh4Og/view?usp=drive_link" target="_blank" style="display: inline-block; padding: 0.5rem 1.2rem; border: 1px solid var(--accent); background-color: rgba(88, 166, 255, 0.05); color: var(--text-bright); text-decoration: none; font-family: monospace; font-size: 0.85rem; border-radius: 4px; transition: background-color 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(88, 166, 255, 0.15)'" onmouseout="this.style.backgroundColor='rgba(88, 166, 255, 0.05)'">
-                        📄 Read AIAA SciTech 2027 Abstract ↗
-                    </a>
-                </div>
 
-                <p>Investigating pressure-density coupling and complex baroclinic vorticity generation across an air-helium interface.</p>
-                
-                <img src="1.png" alt="Schematic" class="project-image" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
-                
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>Schematic of transverse pressure interaction with Coaxial flows</em>
+                <span class="meta">
+                    APSYS Lab, IIT Kharagpur | Prof. Amardip Ghosh
+                </span>
+
+                <h3 class="section-title">Bachelor's Thesis / AIAA SciTech 2027</h3>
+
+                <a href="https://drive.google.com/file/d/1l87rqQ0T5ipB8y-eTvRAcvV965FEh4Og/view?usp=drive_link"
+                   target="_blank"
+                   class="resource-button">
+                    Read AIAA SciTech 2027 Abstract ↗
+                </a>
+
+                <p>
+                    Investigating the interaction of transverse pressure waves
+                    with density-stratified coaxial flow, with particular focus
+                    on pressure–density coupling, instability evolution, and
+                    baroclinic vorticity generation.
                 </p>
-                <p>Developed an end-to-end CFD framework in ANSYS Fluent to simulate baseline shock interactions and RMI onset.</p>
-                
-                <!-- Fixed GIF display -->
-                <img src="Media1.gif" alt="CFD Simulation" class="project-image" style="width: 100%; display: block; margin-left: auto; margin-right: auto;">
-                
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>Figure: Side-by-side numerical Schlieren and Helium mass fraction capturing flow instabilities.</em>
+
+                <img src="1.png"
+                     alt="Schematic of transverse pressure interaction with coaxial flows"
+                     class="project-image"
+                     style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
+
+                <p class="caption">
+                    <em>Schematic of transverse pressure interaction with coaxial flow</em>
                 </p>
-                <p>Designed the test rig, utilizing Schlieren for high-speed optical diagnostics of shock-wave interactions.</p>
+
+                <p>
+                    Designed the experimental rig and developed an end-to-end
+                    CFD framework in ANSYS Fluent, including geometry,
+                    meshing, and solver setup.
+                </p>
+
+                <p>
+                    Conducted transient simulations of shock–interface
+                    interactions to investigate the onset of Richtmyer–Meshkov
+                    instability and baroclinic vorticity generation.
+                </p>
+
+                <img src="Media1.gif"
+                     alt="CFD simulation showing instability evolution"
+                     class="project-image">
+
+                <p class="caption">
+                    <em>
+                        Numerical Schlieren and helium mass-fraction evolution
+                        capturing the development of flow instabilities.
+                    </em>
+                </p>
+
+                <p>
+                    Designed the test section for cold-flow experiments and
+                    planned Schlieren-based high-speed optical diagnostics to
+                    study the evolution of the density interface.
+                </p>
+
             </div>
-            
-            <!-- Project 2 Detail -->
+
+
+            <!-- PROJECT 2: VERTICAL DUMP COMBUSTOR -->
             <div id="project-2" class="project-detail">
-                <h2>Vertical Dump Combustor</h2>
-                <span class="meta">APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024</span>
-                <p>Characterized vertical dump combustor instabilities by identifying dominant acoustic modes. Performed FFT and spectrogram analysis on Kistler pressure-sensor data acquired through a high-speed DAQ system, maintaining a custom water-cooling loop for sensor fidelity.</p>
-                <img src="Picture4.png" alt="Schematic" class="project-image" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em>FFT and Spectogram analysis in one of the test case</em>
+
+                <h2>Thermoacoustic Instability in a Vertical Dump Combustor</h2>
+
+                <span class="meta">
+                    APSYS Lab, IIT Kharagpur | May 2024 – Dec 2024 |
+                    Prof. Amardip Ghosh
+                </span>
+
+                <p>
+                    Assisted senior research scholars with experiments on a
+                    laboratory-scale vertical dump combustor, gaining
+                    hands-on experience with experimental setup, instrumentation,
+                    and high-frequency data acquisition.
                 </p>
+
+                <p>
+                    Assisted with dynamic-pressure measurements under controlled
+                    operating conditions and processed the acquired data using
+                    FFT and spectrogram analysis to identify dominant acoustic modes.
+                </p>
+
+                <p>
+                    Worked with Kistler pressure sensors, high-speed DAQ systems,
+                    optical diagnostics, and the laboratory water-cooling loop
+                    used to maintain sensor fidelity during experiments.
+                </p>
+
+                <img src="Picture4.png"
+                     alt="FFT and spectrogram analysis of combustor pressure data"
+                     class="project-image"
+                     style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+
+                <p class="caption">
+                    <em>
+                        FFT and spectrogram analysis of dynamic-pressure data
+                        from a representative test case.
+                    </em>
+                </p>
+
             </div>
 
-            <!-- Project 3 Detail -->
+
+            <!-- PROJECT 3: SHOCK TUBE -->
             <div id="project-3" class="project-detail">
-                <h2>Sea Wave Detection via Deep Learning</h2>
-                <span class="meta">RAFT Lab, IIT Madras | Prof. Ranjith Mohan</span>
-                
-                <!-- Section Heading -->
-                <h3 style="font-size: 1.2rem; color: var(--text-bright); margin-top: 1.5rem; margin-bottom: 0.8rem;">Internship Report</h3>
-                
-                <!-- Report Link Button -->
-                <div style="margin-bottom: 2rem;">
-                    <a href="https://drive.google.com/file/d/1L98MlpX79rm2lh1x_QBRzgmrpBZBRkT5/view?usp=drive_link" target="_blank" style="display: inline-block; padding: 0.5rem 1.2rem; border: 1px solid var(--accent); background-color: rgba(88, 166, 255, 0.05); color: var(--text-bright); text-decoration: none; font-family: monospace; font-size: 0.85rem; border-radius: 4px; transition: background-color 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(88, 166, 255, 0.15)'" onmouseout="this.style.backgroundColor='rgba(88, 166, 255, 0.05)'">
-                        📄 Read Full Research Report ↗
-                    </a>
-                </div>
 
-                <p>Summer Research Intern 2025. Developed a custom computer vision pipeline using YOLOv11n and Faster R-CNN, integrated with a Luxonis OAK-D SR depth camera for real-time wave height estimation to forecast sea conditions.</p>
+                <h2>Shock Tube & High-Speed Schlieren Diagnostics</h2>
+
+                <span class="meta">
+                    APSYS Lab, IIT Kharagpur | Experimental Work
+                </span>
+
+                <p>
+                    Assisted with high-speed Schlieren experiments in a shock tube,
+                    gaining practical experience in optical alignment,
+                    diagnostics setup, and shock-tube operation.
+                </p>
+
+                <p>
+                    Worked with an aluminium-foil diaphragm to generate the
+                    driven shock and studied the evolution of the compressible
+                    flow field using high-speed optical diagnostics.
+                </p>
+
+                <p>
+                    To deepen my understanding of shock propagation, I also
+                    implemented the Method of Characteristics for a shock-tube
+                    case and visualized the evolving flow field computationally.
+                </p>
+
+                <img src="shock_tube.png"
+                     alt="High-speed Schlieren visualization of shock tube flow"
+                     class="project-image"
+                     onerror="this.style.display='none';">
+
+                <p class="caption">
+                    <em>
+                        High-speed Schlieren diagnostics and computational
+                        visualization of shock propagation.
+                    </em>
+                </p>
+
             </div>
-            <!-- Project 4 Detail -->
+
+
+            <!-- PROJECT 4: SEA WAVE -->
             <div id="project-4" class="project-detail">
-                <h2>AIAA DBF 2026</h2>
-                <span class="meta">Design Team Lead | Nov 2025 – Apr 2026</span>
-                <p>Led the 3D CAD design of the Pushpak aircraft using Onshape for the AIAA Design/Build/Fly competition (Ranked 39th globally). Engineered custom deployment mechanisms and fabricated the structural airframe using aeroply, balsa, and composite materials.</p>
-                
-                <p style="margin-top: 1.5rem;"><strong>Proposal Phase Optimization & Trade Studies:</strong> Developed custom numerical sizing pipelines to mathematically evaluate performance spaces, optimize flight parameters, and maximize score leverage before fabrication.</p>
-                
-                <!-- Side-by-side container for Pic 1 and Pic 3 -->
-                <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 260px; text-align: center;">
-                        <img src="pic1.png" alt="M3 design optimisation in cruise" class="project-image" style="width: 100%; margin-top: 0;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                            <em>M3 Design Optimisation in Cruise</em>
+
+                <h2>Sea Wave Detection via Deep Learning</h2>
+
+                <span class="meta">
+                    RAFT Lab, IIT Madras | May 2025 – Jun 2025 |
+                    Prof. Ranjith Mohan
+                </span>
+
+                <h3 class="section-title">Summer Research Internship</h3>
+
+                <a href="https://drive.google.com/file/d/1L98MlpX79rm2lh1x_QBRzgmrpBZBRkT5/view?usp=drive_link"
+                   target="_blank"
+                   class="resource-button">
+                    Read Full Research Report ↗
+                </a>
+
+                <p>
+                    Developed a computer-vision and deep-learning pipeline for
+                    real-time ocean-wave detection and measurement using a
+                    Luxonis OAK-D SR depth camera.
+                </p>
+
+                <p>
+                    Implemented object detection and segmentation workflows using
+                    YOLOv11n and Faster R-CNN with OpenCV and PyTorch to estimate
+                    wave height from depth information.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 5: AIAA DBF -->
+            <div id="project-5" class="project-detail">
+
+                <h2>AIAA Design/Build/Fly 2026</h2>
+
+                <span class="meta">
+                    Design Team Lead | Nov 2025 – Apr 2026
+                </span>
+
+                <p>
+                    Co-founded the Design Build Fly IIT Kharagpur team and
+                    served as Design Lead for the AIAA DBF 2026 competition.
+                    The team ranked 39th globally and 5th in Asia at the
+                    onsite competition in Wichita, USA.
+                </p>
+
+                <p>
+                    Led 3D CAD development of the Pushpak aircraft using Onshape,
+                    contributed to performance and sensitivity studies, and
+                    designed custom deployment mechanisms for the mission profile.
+                </p>
+
+                <p>
+                    Worked with the team to fabricate the structural airframe
+                    using aeroply, balsa, and composite materials, taking the
+                    aircraft from design through physical testing.
+                </p>
+
+                <p style="margin-top: 1.5rem;">
+                    <strong>Proposal Phase Optimization & Trade Studies:</strong>
+                    Developed numerical sizing and sensitivity-analysis tools
+                    to evaluate design spaces, optimize mission parameters,
+                    and improve competition score potential.
+                </p>
+
+                <div class="two-column-images">
+
+                    <div>
+                        <img src="pic1.png"
+                             alt="M3 design optimisation in cruise"
+                             class="project-image">
+
+                        <p class="caption">
+                            <em>M3 design optimisation in cruise</em>
                         </p>
                     </div>
-                    <div style="flex: 1; min-width: 260px; text-align: center;">
-                        <img src="pic3.png" alt="M3 design optimisation for Battery" class="project-image" style="width: 100%; margin-top: 0;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                            <em>M3 Design Optimisation for Battery</em>
+
+                    <div>
+                        <img src="pic3.png"
+                             alt="M3 battery optimisation"
+                             class="project-image">
+
+                        <p class="caption">
+                            <em>M3 design optimisation for battery usage</em>
                         </p>
                     </div>
+
                 </div>
 
-                <!-- Bottom image (Pic 2: Sensitivity Analysis) -->
                 <div style="margin-top: 1.5rem; text-align: center;">
-                    <img src="pic2.png" alt="Sensitivity analysis M2 and M3" class="project-image" style="width: 75%; display: block; margin-left: auto; margin-right: auto; margin-top: 0;">
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                        <em>Sensitivity Analysis of M2 & M3 Parameters</em>
+
+                    <img src="pic2.png"
+                         alt="Sensitivity analysis of M2 and M3 parameters"
+                         class="project-image"
+                         style="width: 75%;">
+
+                    <p class="caption">
+                        <em>Sensitivity analysis of M2 and M3 parameters</em>
                     </p>
+
                 </div>
 
-                <!-- Hardware & CAD Implementation -->
-                <h3 style="font-size: 1.3rem; color: var(--text-bright); margin-top: 2.5rem; margin-bottom: 1rem;">Hardware & CAD Implementation</h3>
-                
-                <img src="Picture1.jpg" alt="Pushpak UAV CAD Model" class="project-image" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
+                <h3 class="section-title">
+                    Hardware & CAD Implementation
+                </h3>
+
+                <img src="Picture1.jpg"
+                     alt="Pushpak UAV CAD Model"
+                     class="project-image"
+                     style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
+
+                <p class="caption">
                     <em>3D CAD design of the Pushpak aircraft</em>
                 </p>
 
-                <img src="Picture2.jpg" alt="Fabricated Airframe" class="project-image" style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">
-                    <em> Me and aircraft</em>
+                <img src="Picture2.jpg"
+                     alt="Fabricated Pushpak airframe"
+                     class="project-image"
+                     style="width: 70%; display: block; margin-left: auto; margin-right: auto;">
+
+                <p class="caption">
+                    <em>Fabricated Pushpak airframe</em>
                 </p>
+
             </div>
 
         </div>
@@ -401,25 +651,26 @@
 
 </div>
 
-<!-- Interactive Logic for the Menu -->
+
 <script>
     function showProject(projectId, buttonElement) {
-        // 1. Hide all project details
+
         const allDetails = document.querySelectorAll('.project-detail');
         allDetails.forEach(detail => {
             detail.style.display = 'none';
         });
 
-        // 2. Remove the active highlight from all buttons
         const allButtons = document.querySelectorAll('.project-link');
         allButtons.forEach(btn => {
             btn.classList.remove('active-project');
         });
 
-        // 3. Show the selected project detail
-        document.getElementById(projectId).style.display = 'block';
+        const selectedProject = document.getElementById(projectId);
 
-        // 4. Add the active highlight to the clicked button
+        if (selectedProject) {
+            selectedProject.style.display = 'block';
+        }
+
         buttonElement.classList.add('active-project');
     }
 </script>
