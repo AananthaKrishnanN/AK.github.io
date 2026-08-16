@@ -39,20 +39,12 @@
             padding: 0;
             font-size: 16px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            
-            /* Custom Rocket Cursor */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🚀</text></svg>') 0 0, auto;
         }
 
         [data-theme="light"] body {
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-        }
-
-        a, button {
-            /* Custom Hover Fire Cursor */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🔥</text></svg>') 0 0, pointer;
         }
 
         .container {
@@ -104,6 +96,7 @@
             font-family: monospace;
             font-size: 0.8rem;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .theme-toggle:hover {
