@@ -39,9 +39,6 @@
             padding: 0;
             font-size: 16px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            
-            /* Custom Rocket Cursor */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🚀</text></svg>') 0 0, auto;
         }
         
         [data-theme="light"] body {
@@ -50,13 +47,8 @@
                 linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
         }
 
-        a, button {
-            /* Custom Hover Fire Cursor */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="font-size:20px"><text y="20">🔥</text></svg>') 0 0, pointer;
-        }
-
         .container {
-            /* Unified width to 1100px across all pages to prevent nav jumping */
+            /* FIXED: Unified width to 1100px across all pages to prevent jumping */
             max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem;
@@ -104,6 +96,7 @@
             font-family: monospace;
             font-size: 0.8rem;
             transition: all 0.2s;
+            cursor: pointer;
         }
 
         .theme-toggle:hover {
@@ -116,13 +109,11 @@
             /* Uses var(--bg-color) so it fades correctly in light mode */
             background-image: linear-gradient(to right, var(--bg-color) 40%, rgba(13, 17, 23, 0.1) 70%), url('background.jpeg');
             background-size: cover;
-            /* Adjust this percentage to shift the image left/right */
-            background-position: 100% right; 
+            background-position: 80% center; 
             padding: 4rem 3rem;
             border-radius: 12px;
             border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            /* Restricts the box back to its old smaller size */
             max-width: 850px; 
         }
 
